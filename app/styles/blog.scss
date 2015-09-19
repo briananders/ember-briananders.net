@@ -1,0 +1,127 @@
+@import "base-styles";
+
+
+
+
+section.blog {
+  margin-bottom: 0;
+
+  > div {
+    padding-top: 1em;
+  }
+  .dot-dot-dot {
+    @include font-size(20);
+    line-height: 10px;
+  }
+  .blog_tile {
+    line-height: 1.5;
+    width: 100%;
+    display: block;
+    float: left;
+    overflow: hidden;
+    border-radius: 4px;
+    @include box-sizing(border-box);
+    color: $text-gray;
+    margin-bottom: 30px;
+    position: relative;
+    text-align: center;
+
+    h2 {
+      margin: 0;
+      line-height: 1;
+    }
+    time {
+      @include font-size(16);
+      line-height: 1;
+      display: block;
+      padding-top: 8px;
+      padding-bottom: 2px;
+    }
+
+    p {
+      text-align: left;
+      display: inline-block;
+    }
+
+    a {
+      color: $Neon-Orange;
+
+      &:hover {
+        color: $text-gray;
+      }
+    }
+  }
+
+  a.image-holder {
+    width: 100%;
+    display: block;
+    margin-bottom: .5em;
+    img {
+      width: 100%;
+      display: block;
+    }
+    &.panorama {
+      img {
+      }
+    }
+    &.last {
+      margin-bottom: 0;
+    }
+  }
+  div {
+    &.row {
+      overflow: hidden;
+    }
+    &.apple-map {
+      @include columns(4);
+      @include image-2x('/assets/images/blog/AppleCampus2/1x/apple-campus-2-map.jpg', '/assets/images/blog/AppleCampus2/2x/apple-campus-2-map.jpg');
+      background-position: center center;
+      background-repeat: no-repeat;
+      padding-top: 49.549718023%;
+      float: left;
+      background-size: auto 100%;
+      margin-left: 0;
+    }
+    &.apple-rendering {
+      @include columns(8);
+      @include image-2x('/assets/images/blog/AppleCampus2/1x/Apple_Campus_2_rendering.jpg', '/assets/images/blog/AppleCampus2/2x/Apple_Campus_2_rendering.jpg');
+      background-position: center center;
+      background-repeat: no-repeat;
+      padding-top: 49.549718023%;
+      float: left;
+      background-size: auto 100%;
+      margin-right: $gutter;
+    }
+  }
+  blockquote {
+    border-left: 5px solid $Neon-Orange;
+    margin: 0;
+    padding: 40px;
+
+    p {
+      margin: 0;
+    }
+  }
+}
+
+
+code {
+  @include font-size(20);
+  color: $Neon-Orange;
+}
+
+
+.author {
+  @include font-size(24);
+}
+
+
+
+
+.blog_container {
+  .home {
+    display: block;
+    position: relative;
+    top: 12px;
+  }
+}

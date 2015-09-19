@@ -1,0 +1,142 @@
+// @import "compass";
+
+$gutter:    percentage(20px/940px); // 20px at 960px wide container, accounting for a 1/2 gutter width padding on the left and right of the container
+$onecol:                6.3829787%; // 60px at 960px wide container
+$columnsBreakPoint:          600px; // set this to the minimum width you want the columns to take effect at
+$containerMaxWidth:          1040px; // set this to the maximum width you want .container to have
+
+
+
+$text-gray: #C6C8CA;
+$darker-gray: #2C2E30;
+$dark-gray: #2F3133;
+$grayer: #404244;
+$gray: #434547;
+$light-gray: #4A4C4E;
+$text-border: #121416;
+$border-color: #555759;
+
+$Neon-Orange: #FFA700;
+$Neon-Purple: #993CF3;
+
+
+
+
+// MEDIA QUERY MIXINS
+@mixin mq($query) {
+  @media screen and (min-width: $query) {
+    @content;
+  }
+  html.nr {
+    @content;
+  }
+}
+
+@mixin columns($count:1) {
+  width: ($onecol * $count) + ($gutter * ($count - 1));
+}
+
+@mixin font-size($sizeValue: 16) {
+  font-size: $sizeValue + px;
+  font-size: ($sizeValue / 10) + rem;
+}
+
+@mixin column-count($value:1) {
+   -webkit-column-count: $value;
+   -moz-column-count:    $value;
+   column-count:         $value;
+}
+
+@mixin column-gap($value:0px) {
+   -webkit-column-gap:   $value;
+   -moz-column-gap:      $value;
+   column-gap:           $value;
+}
+
+@mixin image-2x($image, $image_2x) {
+  background-image: url($image);
+
+  @media (min--moz-device-pixel-ratio: 1.3),
+         (-o-min-device-pixel-ratio: 2.6/2),
+         (-webkit-min-device-pixel-ratio: 1.3),
+         (min-device-pixel-ratio: 1.3),
+         (min-resolution: 1.3dppx) {
+    /* on retina, use image that's scaled by 2 */
+    background-image: url($image_2x);
+  }
+}
+
+@mixin box-sizing($arg) {
+  box-sizing: $arg;
+}
+
+@mixin box-shadow($args...) {
+  -webkit-box-shadow: $args;
+  -moz-box-shadow:    $args;
+  box-shadow:         $args;
+}
+
+@mixin text-shadow($args...) {
+  -webkit-text-shadow: $args;
+  -moz-text-shadow:    $args;
+  text-shadow:         $args;
+}
+
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes $animation-name {
+    @content;
+  }
+  @-moz-keyframes $animation-name {
+    @content;
+  }
+  @-ms-keyframes $animation-name {
+    @content;
+  }
+  @-o-keyframes $animation-name {
+    @content;
+  }
+  @keyframes $animation-name {
+    @content;
+  }
+}
+
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};
+}
+
+@mixin transform($transforms) {
+       -o-transform: $transforms;
+      -ms-transform: $transforms;
+     -moz-transform: $transforms;
+  -webkit-transform: $transforms;
+          transform: $transforms;
+}
+
+%clearfix {
+  *zoom: 1;
+  &:before, &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}

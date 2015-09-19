@@ -1,0 +1,118 @@
+@import "base-styles";
+
+
+
+
+
+
+
+
+.content {
+  min-height: 300px;
+}
+section {
+  width: 100%;
+  float: left;
+  height: auto;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 30px;
+  @include box-sizing(border-box);
+  @include transition(height 0.5s ease);
+
+  > h2 {
+    width: 100%;
+    margin: 0;
+    font-weight: 700;
+    @include font-size(50);
+    @include text-shadow(0px 1px 0px $text-border,
+                         0px 2px 0px $text-border);
+    color: $Neon-Orange;
+    @include box-sizing(border-box);
+    @include transition(font-size .5s ease);
+    border-bottom: 2px solid $Neon-Orange;
+
+    a {
+      width: auto;
+      float: none;
+    }
+  }
+  &.about-me {
+    width: 100%;
+    height: auto;
+
+    > h2 {
+      display: block;
+      margin-bottom: 10px;
+    }
+  }
+  p {
+    margin: 0 0 10px;
+  }
+
+  &.instagram, &.albums {
+    h2 a {
+      float: none;
+      width: auto;
+      padding-top: 0;
+
+      &:hover {
+        color: $text-gray
+      }
+    }
+    a {
+      width: 50%;
+      float: left;
+      opacity: 1;
+      position: relative;
+      padding-top: 50%;
+      height: 0;
+
+      img {
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+@include mq(450px) {
+  section {
+    &.about-me {
+      @include font-size(30);
+    }
+    &.instagram, &.albums {
+      a {
+        width: 33.3%;
+        padding-top: 33.3%;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+@include mq(600px) {
+  section {
+    &.instagram, &.albums {
+      a {
+        width: 25%;
+        padding-top: 25%;
+      }
+    }
+  }
+}

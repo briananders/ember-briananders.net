@@ -1,0 +1,373 @@
+@import "normalize";
+@import "base-styles";
+
+@import "index";
+@import "work";
+@import "blog";
+@import "four-oh-four";
+
+
+
+
+#galaxy {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  background: $darker-gray;
+  opacity: 0;
+  @include transform(translateZ(0));
+  @include transition(opacity 5s ease);
+
+  &.on-deck {
+    display: block;
+    visibility: visible;
+
+    &.visible {
+      opacity: 1;
+    }
+  }
+
+  circle {
+    opacity: 1;
+    @include transform(translateZ(0));
+    @include transition(opacity 2s ease);
+
+    &.invisible {
+      opacity: 0;
+    }
+  }
+}
+
+
+
+
+.center {
+  text-align: center;
+}
+
+.clearfix {
+  overflow: auto;
+  clear: both;
+}
+
+a {
+  @include transform(translateZ(0));
+
+  img {
+    z-index: 0;
+
+    &:hover {
+      @include transform(scaleX(.98) scaleY(.98));
+      z-index: 1;
+    }
+  }
+}
+
+html {
+  min-height: 100%;
+  font-size: 62.5%;
+  position: relative;
+  background: $darker-gray;
+  font-family: "Times New Roman", Times, serif;
+
+  ::selection {
+    background: $Neon-Orange; /* Safari */
+    color: $dark-gray;
+    @include text-shadow(none);
+  }
+  ::-moz-selection {
+    background: $Neon-Orange; /* Firefox */
+    color: $dark-gray;
+    @include text-shadow(none);
+  }
+}
+
+body {
+  @include font-size(24);
+  min-height: 100%;
+}
+
+* {
+  @include box-sizing(border-box);
+}
+
+h1, h2, h3 {
+  font-weight: 700;
+  @include text-shadow(0px 1px 0px $text-border,
+                       0px 2px 0px $text-border);
+  color: $Neon-Orange;
+  text-align: center;
+}
+
+h1 {
+  @include font-size(40);
+  margin: 20px 0;
+}
+
+h2 {
+  @include font-size(34);
+}
+
+h3 {
+  @include font-size(30);
+}
+
+img {
+  opacity: 0;
+  @include transform(scale(.5));
+  @include transition(opacity .5s ease, transform .5s ease);
+
+  &.loaded {
+    opacity: 1;
+    @include transform(scale(1));
+  }
+}
+
+nav {
+  @include font-size(30);
+  font-weight: 100;
+  overflow: hidden;
+  padding: 20px;
+  margin: 0 20px;
+  color: $text-gray;
+  line-height: .9;
+  text-align: center;
+  border-bottom: 2px solid $Neon-Orange;
+
+  a {
+    color: $Neon-Orange;
+    display: inline-block;
+    @include box-sizing(border-box);
+
+    &:hover {
+      color: inherit;
+    }
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 700px;
+  margin: auto;
+  overflow: hidden;
+  @include box-sizing(border-box);
+  position: relative;
+  z-index: 1;
+}
+
+a {
+  text-decoration: none;
+  color: $Neon-Orange;
+  @include transition(color .2s ease);
+
+  &:hover {
+    color: inherit;
+  }
+}
+
+p, blockquote {
+  a {
+    color: $Neon-Orange;
+  }
+}
+
+header {
+  h1 {
+    @include font-size(80);
+  }
+}
+
+.content {
+  width: 100%;
+  display: block;
+  overflow: hidden;
+  font-weight: 100;
+  color: $text-gray;
+  padding: 0 20px;
+  min-height: 400px;
+  @include box-sizing(border-box);
+}
+
+.blog-date {
+  color: $text-gray;
+  @include font-size(20);
+  margin-top: 10px;
+}
+
+p {
+  @include font-size(20);
+  line-height: 1.5;
+  font-weight: 100;
+}
+
+.home {
+  cursor: pointer;
+  background-image: url('/assets/images/home.svg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  display: none;
+  height: 29px;
+  width: 35px;
+  opacity: 1;
+  @include transition(opacity .3s ease);
+
+  &:hover {
+    opacity: .5;
+  }
+}
+
+.social-likes {
+  text-align: center;
+  padding: 20px 0 40px;
+
+  li {
+    line-height: 15px;
+    display: inline-block;
+  }
+}
+
+.links {
+  overflow: hidden;
+  text-align: center;
+
+  .link-container {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    max-width: 660px;
+    @include box-sizing(border-box);
+  }
+
+  .link {
+    width: 20%;
+    float: left;
+    height: 60px;
+
+    &.instagram {
+      background-color: #517FA4;
+    }
+    &.twitter {
+      background-color: #33CCFF;
+    }
+    &.lastfm {
+      background-color: #E02F2F;
+    }
+    &.linkedin {
+      background-color: #328FF1;
+    }
+    &.github {
+      background-color: $dark-gray;
+    }
+  }
+
+  a {
+    width: 100%;
+    height: 100%;
+    color: #FFFFFF;
+    position: relative;
+    line-height: normal;
+    display: inline-block;
+    @include box-sizing(border-box);
+  }
+  img {
+    z-index: 1;
+    opacity: 1;
+    width: 50px;
+    height: 50px;
+    display: block;
+    margin: 5px auto;
+    position: relative;
+    @include transform(translateY(0px));
+    @include transition(transform .25s ease);
+  }
+  span {
+    position: relative;
+    @include font-size(12);
+    display: block;
+    margin-top: -20px;
+    padding-top: 7px;
+    opacity: 0;
+    @include transform(translateY(-26px));
+    @include transition(transform .25s ease, opacity .25s ease);
+  }
+}
+
+.foot {
+  text-align: center;
+  @include font-size(20);
+  font-weight: 100;
+  float: left;
+  width: 100%;
+  padding: 10px;
+  color: $text-gray;
+
+  a {
+    @include font-size(12);
+  }
+  span {
+    display: block;
+  }
+}
+
+
+
+
+
+
+
+
+@include mq(600px) {
+  a.nav {
+    top: 1px;
+  }
+  p {
+    @include font-size(24);
+  }
+  .links {
+    a {
+      &:hover {
+        img {
+          @include transform(translateY(-10px));
+        }
+        span {
+          opacity: 1;
+          @include transform(translateY(-10px));
+        }
+      }
+    }
+    .link {
+      height: 90px;
+    }
+    img {
+      margin: 20px auto;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+html.lt-ie9.nr {
+  .links {
+    a {
+      &:hover {
+        span {
+          -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+        }
+      }
+    }
+    span {
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+      width: 100%;
+    }
+  }
+}
