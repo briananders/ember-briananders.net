@@ -1,3 +1,9 @@
-# http://www.robotstxt.org
+# www.robotstxt.org/
+# http://code.google.com/web/controlcrawlindex/
+
+Disallow: /harming-humans/
+Disallow: /ignoring-human-orders/
+Disallow: /harm-to-self/
+
 User-agent: *
-Disallow:
+allow: /

@@ -1,0 +1,12 @@
+/* ABOUT THIS FILE */
+  Description: We Are People, Not Machines
+  More informations: <http://humanstxt.org/>
+
+/* ME */
+  Engineer: Brian Anders
+  Contact: @brnandrs
+
+/* SITE */
+  HTML, CSS, JavaScript
+  Built using Ember CLI
+
