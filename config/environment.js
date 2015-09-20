@@ -13,7 +13,9 @@ module.exports = function(environment) {
       }
     },
     contentSecurityPolicy: {
-      "default-src": "'self' *"
+      "default-src": "'self' *",
+      "script-src": "'self' *",
+      "img-src": "'self' *"
     },
     APP: {
       // Here you can pass flags/options to your application instance

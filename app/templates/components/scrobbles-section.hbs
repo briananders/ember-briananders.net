@@ -1,3 +1,10 @@
-<section id="music" class="albums">
+<section id="music" class="albums {{if view.error 'hidden'}} {{if view.noAlbums 'hidden'}}">
   <h2><a target="_blank" href="http://www.last.fm/user/iBrianAnders" title="My Last.fm profile">Scrobbles</a></h2>
+
+  {{#each album in view.albums}}
+    <a target="_blank" href="{{album.url}}" class="album" title="{{album.name}}">
+      {{image-tag src=album.image alt=album.name }}
+    </a>
+  {{/each}}
 </section>
+
