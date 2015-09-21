@@ -1,3 +1,9 @@
-<section class="instagram">
+<section class="instagram {{if view.error 'hidden'}} {{if view.noImages 'hidden'}}">
   <h2><a target="_blank" href="http://instagram.com/briananders" title="My Instagram profile">Instagram</a></h2>
+
+  {{#each photo in view.images}}
+    <a target="_blank" href="{{photo.link}}" title="{{photo.caption}}">
+      {{image-tag src=photo.url alt=photo.caption }}
+    </a>
+  {{/each}}
 </section>

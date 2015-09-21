@@ -1,20 +1,15 @@
-<svg id="galaxy" version="1.1" xmlns="http://www.w3.org/2000/svg" ></svg>
+<svg class="galaxy" version="1.1" xmlns="http://www.w3.org/2000/svg" ></svg>
 
 <div class="container">
 
   <div class="content">
 
-    {{!--
-      <% if current_page.data.type == "profile" %>
-        <header id="header" itemscope itemtype="http://schema.org/Person">
-          <%#= partial "partials/name-svg" %>
-          <h1><%= $my_name %></h1>
-          <meta itemprop="name" content="<%= $my_name %>">
-          <meta itemprop="url" content="http://briananders.net">
-          <meta itemprop="jobTitle" content="UX Engineer">
-        </header>
-      <% end %>
-    --}}
+    <header id="header" itemscope itemtype="http://schema.org/Person">
+      <h1>Brian Anders</h1>
+      <meta itemprop="name" content="Brian Anders">
+      <meta itemprop="url" content="http://briananders.net">
+      <meta itemprop="jobTitle" content="UX Engineer">
+    </header>
 
     {{outlet}}
 

@@ -3,10 +3,13 @@ import Ember from 'ember';
 export default Ember.Component.extend({
 
 
-  src: null,
+  tagName: 'img',
 
 
-  alt: null,
+  attributeBindings: ['src', 'alt'],
+
+
+  classNameBindings: ['loaded:loaded'],
 
 
   loaded: false,
@@ -14,13 +17,20 @@ export default Ember.Component.extend({
 
   didInsertElement() {
 
-    this.$('img').on('load', function(){
+    Ember.run(this, function() {
 
-      this.set('loaded', true);
+      this.$().on('load', function(){
 
-    }.bind(this));
+        Ember.run(this, function(){
+          this.set('loaded', true);
+        });
 
-  }
+      }.bind(this));
+
+    });
+
+  },
+
 
 
 });

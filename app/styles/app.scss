@@ -9,7 +9,7 @@
 
 
 
-#galaxy {
+.galaxy {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -104,11 +104,13 @@ h1, h2, h3 {
 }
 
 h1 {
+  font-family: Impact, Charcoal, sans-serif;
   @include font-size(40);
   margin: 20px 0;
 }
 
 h2 {
+  font-family: Impact, Charcoal, sans-serif;
   @include font-size(34);
 }
 
