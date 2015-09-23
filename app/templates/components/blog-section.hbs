@@ -1,1 +1,14 @@
-{{yield}}
+<h2>Blog</h2>
+<div>
+  {{#each blogService.dataArray as |blog|}}
+    {{#link-to blog.route class="blog_tile"}}
+      <span itemscope itemtype="http://schema.org/BlogPosting">
+        <h2 itemprop="name">{{blog.title}}</h2>
+        <meta itemprop="author" content="Brian Anders">
+        <meta itemprop="url" content="http://briananders.net/{{blog.route}}">
+        <time datetime="{{blog.date}}" itemprop="datePublished">({{blog.date}})</time>
+        {{blog.description}}
+      </span>
+    {{/link-to}}
+  {{/each}}
+</div>

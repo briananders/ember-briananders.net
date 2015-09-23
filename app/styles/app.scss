@@ -120,6 +120,7 @@ h3 {
 
 img {
   opacity: 0;
+  max-width: 100%;
   @include transform(scale(.5));
   @include transition(opacity .5s ease, transform .5s ease);
 
@@ -153,7 +154,6 @@ nav {
 
 .container {
   width: 100%;
-  max-width: 700px;
   margin: auto;
   overflow: hidden;
   @include box-sizing(border-box);
@@ -172,6 +172,9 @@ a {
 }
 
 p, blockquote {
+  max-width: 660px;
+  margin: 25px auto;
+
   a {
     color: $Neon-Orange;
   }

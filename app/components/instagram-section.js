@@ -44,7 +44,7 @@ export default Ember.Component.extend({
             if(index >= 12) return;
 
             photo.caption = (photo.caption === null ? 'no caption' : photo.caption.text);
-            photo.url = (window.isRetina ? photo.images.low_resolution.url : photo.images.thumbnail.url);
+            photo.url = (window.isRetina ? photo.images.standard_resolution.url : photo.images.low_resolution.url);
             images.push(photo);
           });
 

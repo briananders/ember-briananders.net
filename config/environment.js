@@ -15,6 +15,7 @@ module.exports = function(environment) {
     contentSecurityPolicy: {
       "default-src": "'self' *",
       "script-src": "'self' *",
+      "style-src": "'self' 'unsafe-inline'",
       "img-src": "'self' *"
     },
     APP: {

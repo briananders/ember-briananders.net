@@ -1,19 +1,19 @@
 <div class="blog_container" itemscope itemtype="http://schema.org/BlogPosting">
 
-  {{#link-to "index" class="home" title="Go to home page"}}{{/link-to}}
+  <p>
+    {{#link-to "index" class="home" title="Go to home page"}}{{/link-to}}
+  </p>
 
   <h1>
-    {{!-- <%= data.page.title %>
+    {{blogService.title}}
     <div class="blog-date">
-      (<%= data.page.date.strftime('%m/%d/%Y') %>)
-    </div> --}}
+      ({{blogService.date}})
+    </div>
 
-    {{!-- <meta itemprop="author" content="<%= $my_name %>">
-    <meta itemprop="url" content="http://briananders.net<%= current_page.url %>">
-    <meta itemprop="name" content="<%= data.page.title %>">
-    <meta itemprop="datePublished" content="<%= data.page.date.strftime('%m/%d/%Y') %>"> --}}
-
-    {{#link-to "index" title="Brian Anders" class="author"}}Brian Anders{{/link-to}}
+    <meta itemprop="author" content="Brian Anders">
+    <meta itemprop="url" content="http://briananders.net/{{blogService.route}}">
+    <meta itemprop="name" content="{{blogService.title}}">
+    <meta itemprop="datePublished" content="{{blogService.date}}">
   </h1>
 
   {{yield}}

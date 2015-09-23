@@ -51,56 +51,56 @@ section.blog {
       }
     }
   }
+}
 
-  a.image-holder {
+a.image-holder {
+  width: 100%;
+  display: block;
+  margin-bottom: .5em;
+  img {
     width: 100%;
     display: block;
-    margin-bottom: .5em;
+  }
+  &.panorama {
     img {
-      width: 100%;
-      display: block;
-    }
-    &.panorama {
-      img {
-      }
-    }
-    &.last {
-      margin-bottom: 0;
     }
   }
-  div {
-    &.row {
-      overflow: hidden;
-    }
-    &.apple-map {
-      @include columns(4);
-      @include image-2x('/assets/images/blog/AppleCampus2/1x/apple-campus-2-map.jpg', '/assets/images/blog/AppleCampus2/2x/apple-campus-2-map.jpg');
-      background-position: center center;
-      background-repeat: no-repeat;
-      padding-top: 49.549718023%;
-      float: left;
-      background-size: auto 100%;
-      margin-left: 0;
-    }
-    &.apple-rendering {
-      @include columns(8);
-      @include image-2x('/assets/images/blog/AppleCampus2/1x/Apple_Campus_2_rendering.jpg', '/assets/images/blog/AppleCampus2/2x/Apple_Campus_2_rendering.jpg');
-      background-position: center center;
-      background-repeat: no-repeat;
-      padding-top: 49.549718023%;
-      float: left;
-      background-size: auto 100%;
-      margin-right: $gutter;
-    }
+  &.last {
+    margin-bottom: 0;
   }
-  blockquote {
-    border-left: 5px solid $Neon-Orange;
-    margin: 0;
-    padding: 40px;
+}
+div {
+  &.row {
+    overflow: hidden;
+  }
+  &.apple-map {
+    @include columns(4);
+    @include image-2x('/assets/images/blog/AppleCampus2/1x/apple-campus-2-map.jpg', '/assets/images/blog/AppleCampus2/2x/apple-campus-2-map.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding-top: 49.549718023%;
+    float: left;
+    background-size: auto 100%;
+    margin-left: 0;
+  }
+  &.apple-rendering {
+    @include columns(8);
+    @include image-2x('/assets/images/blog/AppleCampus2/1x/Apple_Campus_2_rendering.jpg', '/assets/images/blog/AppleCampus2/2x/Apple_Campus_2_rendering.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding-top: 49.549718023%;
+    float: left;
+    background-size: auto 100%;
+    margin-right: $gutter;
+  }
+}
+blockquote {
+  border-left: 5px solid $Neon-Orange;
+  margin: 0;
+  padding: 40px;
 
-    p {
-      margin: 0;
-    }
+  p {
+    margin: 0;
   }
 }
 
@@ -123,5 +123,10 @@ code {
     display: block;
     position: relative;
     top: 12px;
+  }
+
+  img {
+    display: block;
+    margin: 10px auto;
   }
 }
