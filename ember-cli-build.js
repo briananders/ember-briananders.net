@@ -15,7 +15,7 @@ module.exports = function(defaults) {
       extension: 'scss'
     },
     fingerprint: {
-      enabled: EmberApp.env() === 'production'
+      extensions: ['js', 'css']
     }
   });
 
