@@ -1,18 +1,21 @@
+/*jshint node:true*/
 /* global require, module */
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function(defaults) {
-
   var app = new EmberApp(defaults, {
-    minifyCSS: {
-      enabled: false
-    },
+    storeConfigInMeta: false,
     minifyJS: {
-      enabled: false
+      enabled: EmberApp.env() === 'production'
     },
-    sourcemaps: {
-      enabled: true,
-      extensions: ['js']
+    minifyCSS: {
+      enabled: EmberApp.env() === 'production'
+    },
+    sassOptions: {
+      extension: 'scss'
+    },
+    fingerprint: {
+      enabled: EmberApp.env() === 'production'
     }
   });
 

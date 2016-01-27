@@ -23,6 +23,6 @@ Ember.Route.reopen({
 
   }
 
-})
+});
 
 export default Router;

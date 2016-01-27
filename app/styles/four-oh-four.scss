@@ -7,7 +7,7 @@
 
 
 
-body.four-oh-four {
+.four-oh-four {
 
   .home {
     display: block;
@@ -81,7 +81,7 @@ body.four-oh-four {
 
 
 @include mq(700px) {
-  body.four-oh-four {
+  .four-oh-four {
 
     h2.key {
       width: 25%;
