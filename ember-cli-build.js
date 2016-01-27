@@ -15,7 +15,7 @@ module.exports = function(defaults) {
       extension: 'scss'
     },
     fingerprint: {
-      extensions: ['js', 'css']
+      extensions: ['js', 'css', 'svg', 'jpg', 'jpeg', 'png', 'ico']
     }
   });
 
