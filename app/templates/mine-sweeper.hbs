@@ -1,7 +1,16 @@
-{{#blog-layout}}
 
 
-  MINESWEEPER
 
-
-{{/blog-layout}}
+<ul class="table">
+  {{#each rowsAndColumns as |row|}}
+    <li class="row">
+      <ul>
+        {{#each row as |rowColumn|}}
+          <li class="column">
+            {{mine-sweeper-tile model=rowColumn}}
+          </li>
+        {{/each}}
+      </ul>
+    </li>
+  {{/each}}
+</ul>

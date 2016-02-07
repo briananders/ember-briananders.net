@@ -1,0 +1,110 @@
+.mine-sweeper {
+
+  .table {
+    margin-bottom: 30px;
+    font-family: "Courier New", Courier, monospace;
+    font-weight: bold;
+  }
+
+  ul, li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+  }
+
+  .row {
+    height: 0;
+    padding-top: 10%;
+
+    ul {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+
+  .mine-sweeper-tile {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-sizing: border-box;
+
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
+    user-select: none;          /* Likely future */
+
+    border-width: 5px;
+    border-style: solid;
+    border-top-color: rgb(253,253,253);
+    border-left-color: rgb(253,253,253);
+    border-right-color: rgb(123,123,123);
+    border-bottom-color: rgb(123,123,123);
+    background: rgb(189,189,189);
+
+    &:hover {
+      border-top-color: rgb(255,255,255);
+      border-left-color: rgb(255,255,255);
+      border-right-color: rgb(133,133,133);
+      border-bottom-color: rgb(133,133,133);
+      background: rgb(199,199,199);
+    }
+
+    &.active,
+    &.active:hover {
+      background: rgb(189,189,189);
+      border: 1px solid rgb(123,123,123);
+    }
+
+    &.red {
+      background: red !important;
+    }
+
+    &.flag {
+      background: green !important;
+    }
+  }
+
+  .column {
+    float: left;
+    width: 10%;
+    text-align: center;
+    height: 0;
+    padding-top: 10%;
+    cursor: pointer;
+  }
+
+  .active {
+    &.one {
+      color: blue;
+    }
+    &.two {
+      color: green;
+    }
+    &.three {
+      color: red;
+    }
+    &.four {
+      color: darkblue;
+    }
+    &.five {
+      color: brown;
+    }
+    &.six {
+      color: cyan;
+    }
+    &.seven {
+      color: black;
+    }
+    &.eight {
+      color: grey;
+    }
+  }
+}
