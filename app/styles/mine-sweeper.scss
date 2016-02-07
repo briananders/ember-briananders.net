@@ -17,7 +17,6 @@
 
   .row {
     height: 0;
-    padding-top: 10%;
 
     ul {
       position: absolute;
@@ -25,6 +24,40 @@
       bottom: 0;
       left: 0;
       right: 0;
+    }
+
+    &.column-count-five {
+      padding-top: 100px / 5px * 1%;
+    }
+    &.column-count-six {
+      padding-top: 100px / 6px * 1%;
+    }
+    &.column-count-seven {
+      padding-top: 100px / 7px * 1%;
+    }
+    &.column-count-eight {
+      padding-top: 100px / 8px * 1%;
+    }
+    &.column-count-nine {
+      padding-top: 100px / 9px * 1%;
+    }
+    &.column-count-ten {
+      padding-top: 100px / 10px * 1%;
+    }
+    &.column-count-eleven {
+      padding-top: 100px / 11px * 1%;
+    }
+    &.column-count-twelve {
+      padding-top: 100px / 12px * 1%;
+    }
+    &.column-count-thirteen {
+      padding-top: 100px / 13px * 1%;
+    }
+    &.column-count-fourteen {
+      padding-top: 100px / 14px * 1%;
+    }
+    &.column-count-fifteen {
+      padding-top: 100px / 15px * 1%;
     }
   }
 
@@ -74,11 +107,54 @@
 
   .column {
     float: left;
-    width: 10%;
     text-align: center;
     height: 0;
-    padding-top: 10%;
     cursor: pointer;
+
+    &.column-count-five {
+      width: 100px / 5px * 1%;
+      padding-top: 100px / 5px * 1%;
+    }
+    &.column-count-six {
+      width: 100px / 6px * 1%;
+      padding-top: 100px / 6px * 1%;
+    }
+    &.column-count-seven {
+      width: 100px / 7px * 1%;
+      padding-top: 100px / 7px * 1%;
+    }
+    &.column-count-eight {
+      width: 100px / 8px * 1%;
+      padding-top: 100px / 8px * 1%;
+    }
+    &.column-count-nine {
+      width: 100px / 9px * 1%;
+      padding-top: 100px / 9px * 1%;
+    }
+    &.column-count-ten {
+      width: 100px / 10px * 1%;
+      padding-top: 100px / 10px * 1%;
+    }
+    &.column-count-eleven {
+      width: 100px / 11px * 1%;
+      padding-top: 100px / 11px * 1%;
+    }
+    &.column-count-twelve {
+      width: 100px / 12px * 1%;
+      padding-top: 100px / 12px * 1%;
+    }
+    &.column-count-thirteen {
+      width: 100px / 13px * 1%;
+      padding-top: 100px / 13px * 1%;
+    }
+    &.column-count-fourteen {
+      width: 100px / 14px * 1%;
+      padding-top: 100px / 14px * 1%;
+    }
+    &.column-count-fifteen {
+      width: 100px / 15px * 1%;
+      padding-top: 100px / 15px * 1%;
+    }
   }
 
   .active {

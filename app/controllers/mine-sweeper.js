@@ -11,19 +11,95 @@ export default Ember.Controller.extend({
 
   minesSet: false,
 
-  numberOfRows: 10,
-
-  numberOfColumns: 10,
-
   rowsAndColumns: [],
 
   gameOver: false,
 
   lastSquare: null,
 
+  numberOfRows: 10,
+
+  numberOfColumns: 10,
+
+  difficulty: 0.15,
+
+  difficultyOptions: [
+    { text: "Easy",    value: 0.15 },
+    { text: "Medium",  value: 0.2 },
+    { text: "Hard",    value: 0.3333 }
+  ],
+
+
+  rowOptions: [
+    { text: "5",    value: 5  },
+    { text: "6",    value: 6  },
+    { text: "7",    value: 7  },
+    { text: "8",    value: 8  },
+    { text: "9",    value: 9  },
+    { text: "10",    value: 10  },
+    { text: "11",    value: 11  },
+    { text: "12",    value: 12  },
+    { text: "13",    value: 13  },
+    { text: "14",    value: 14  },
+    { text: "15",    value: 15  }
+  ],
+
+  columnOptions: [
+    { text: "5",    value: 5 },
+    { text: "6",    value: 6 },
+    { text: "7",    value: 7 },
+    { text: "8",    value: 8 },
+    { text: "9",    value: 9 },
+    { text: "10",    value: 10 },
+    { text: "11",    value: 11 },
+    { text: "12",    value: 12 },
+    { text: "13",    value: 13 },
+    { text: "14",    value: 14 },
+    { text: "15",    value: 15 }
+  ],
+
 
 
 ////////////////////////////////////////////// computed properties
+
+
+
+  columnWidthClass: Ember.computed('numberOfColumns', function() {
+
+    switch(this.get('numberOfColumns')) {
+      case 5:
+        return "five";
+      case 6:
+        return "six";
+      case 7:
+        return "seven";
+      case 8:
+        return "eight";
+      case 9:
+        return "nine";
+      case 10:
+        return "ten";
+      case 11:
+        return "eleven";
+      case 12:
+        return "twelve";
+      case 13:
+        return "thirteen";
+      case 14:
+        return "fourteen";
+      case 15:
+        return "fifteen";
+    }
+
+  }),
+
+
+
+  observesRowsAndColumns: Ember.observer('numberOfRows', 'numberOfColumns', 'difficulty', function() {
+
+    this.send('reset');
+
+  }),
 
 
 
@@ -62,10 +138,12 @@ export default Ember.Controller.extend({
     var numberOfRows = this.get('numberOfRows');
     var numberOfColumns = this.get('numberOfColumns');
     var rowsAndColumns = this.get('rowsAndColumns');
-    var mineCount = Math.round((numberOfRows * numberOfColumns) * 0.15);
+    var mineCount = Math.round((numberOfRows * numberOfColumns) * this.get('difficulty'));
 
     var randomRow;
     var randomColumn;
+
+    console.log('mineCount %@'.fmt(mineCount));
 
     while(mineCount > 0) {
 
@@ -79,6 +157,8 @@ export default Ember.Controller.extend({
       }
 
     }
+
+    console.log('mineCount %@'.fmt(mineCount));
 
     this.set('minesSet', true);
 
@@ -180,6 +260,17 @@ export default Ember.Controller.extend({
       this.set('lastSquare', location);
 
     },
+
+
+    reset() {
+
+      this.set('minesSet', false);
+      this.set('rowsAndColumns', []);
+      this.set('gameOver', false);
+      this.set('lastSquare', null);
+      this.setupTable();
+
+    }
 
   },
 

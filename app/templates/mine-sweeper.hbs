@@ -1,12 +1,30 @@
 
+{{view "select"
+       content=difficultyOptions
+       optionValuePath="content.value"
+       optionLabelPath="content.text"
+       value=difficulty}}
 
+<div {{action "reset"}}>RESET</div>
+
+{{view "select"
+       content=rowOptions
+       optionValuePath="content.value"
+       optionLabelPath="content.text"
+       value=numberOfRows}}
+
+{{view "select"
+       content=columnOptions
+       optionValuePath="content.value"
+       optionLabelPath="content.text"
+       value=numberOfColumns}}
 
 <ul class="table">
   {{#each rowsAndColumns as |row|}}
-    <li class="row">
+    <li class="row column-count-{{columnWidthClass}}">
       <ul>
         {{#each row as |rowColumn|}}
-          <li class="column">
+          <li class="column column-count-{{columnWidthClass}}">
             {{mine-sweeper-tile model=rowColumn}}
           </li>
         {{/each}}
