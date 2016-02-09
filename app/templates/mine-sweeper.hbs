@@ -1,19 +1,19 @@
 
+<div {{action "reset"}}>RESET</div>
+
 {{view "select"
        content=difficultyOptions
        optionValuePath="content.value"
        optionLabelPath="content.text"
        value=difficulty}}
 
-<div {{action "reset"}}>RESET</div>
-
-{{view "select"
+Rows: {{view "select"
        content=rowOptions
        optionValuePath="content.value"
        optionLabelPath="content.text"
        value=numberOfRows}}
 
-{{view "select"
+Columns: {{view "select"
        content=columnOptions
        optionValuePath="content.value"
        optionLabelPath="content.text"

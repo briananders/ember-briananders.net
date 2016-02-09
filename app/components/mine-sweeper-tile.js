@@ -20,7 +20,27 @@ export default Ember.Component.extend({
 
 
 
-  showValueClass: Ember.computed('model.active', 'model.value', function() {
+  showValueClass: Ember.computed('model.active',
+                                  'model.value',
+                                  'model.mine',
+                                  'gameOver',
+                                  function() {
+
+    if(this.get('gameOver')) {
+      if(this.get('model.flag') && !this.get('model.mine')) {
+        return 'not-flag';
+      } else if(this.get('model.mine')) {
+        return 'mine';
+      }
+    }
+
+    if(this.get('model.flag')) {
+      return 'flag';
+    }
+
+    if(this.get('model.mine')) {
+      return '';
+    }
 
     if(this.get('model.active')) {
       return ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight'][this.get('model.value')];

@@ -17,45 +17,55 @@ export default Ember.Controller.extend({
 
   lastSquare: null,
 
-  numberOfRows: 10,
+  numberOfRows: 25,
 
-  numberOfColumns: 10,
+  numberOfColumns: 25,
 
   difficulty: 0.15,
 
   difficultyOptions: [
     { text: "Easy",    value: 0.15 },
     { text: "Medium",  value: 0.2 },
-    { text: "Hard",    value: 0.3333 }
+    { text: "Hard",    value: 0.3 }
   ],
 
 
   rowOptions: [
-    { text: "5",    value: 5  },
-    { text: "6",    value: 6  },
-    { text: "7",    value: 7  },
-    { text: "8",    value: 8  },
-    { text: "9",    value: 9  },
     { text: "10",    value: 10  },
     { text: "11",    value: 11  },
     { text: "12",    value: 12  },
     { text: "13",    value: 13  },
     { text: "14",    value: 14  },
-    { text: "15",    value: 15  }
+    { text: "15",    value: 15  },
+    { text: "16",    value: 16  },
+    { text: "17",    value: 17  },
+    { text: "18",    value: 18  },
+    { text: "19",    value: 19  },
+    { text: "20",    value: 20  },
+    { text: "21",    value: 21  },
+    { text: "22",    value: 22  },
+    { text: "23",    value: 23  },
+    { text: "24",    value: 24  },
+    { text: "25",    value: 25  }
   ],
 
   columnOptions: [
-    { text: "5",    value: 5 },
-    { text: "6",    value: 6 },
-    { text: "7",    value: 7 },
-    { text: "8",    value: 8 },
-    { text: "9",    value: 9 },
-    { text: "10",    value: 10 },
-    { text: "11",    value: 11 },
-    { text: "12",    value: 12 },
-    { text: "13",    value: 13 },
-    { text: "14",    value: 14 },
-    { text: "15",    value: 15 }
+    { text: "10",    value: 10  },
+    { text: "11",    value: 11  },
+    { text: "12",    value: 12  },
+    { text: "13",    value: 13  },
+    { text: "14",    value: 14  },
+    { text: "15",    value: 15  },
+    { text: "16",    value: 16  },
+    { text: "17",    value: 17  },
+    { text: "18",    value: 18  },
+    { text: "19",    value: 19  },
+    { text: "20",    value: 20  },
+    { text: "21",    value: 21  },
+    { text: "22",    value: 22  },
+    { text: "23",    value: 23  },
+    { text: "24",    value: 24  },
+    { text: "25",    value: 25  }
   ],
 
 
@@ -67,16 +77,7 @@ export default Ember.Controller.extend({
   columnWidthClass: Ember.computed('numberOfColumns', function() {
 
     switch(this.get('numberOfColumns')) {
-      case 5:
-        return "five";
-      case 6:
-        return "six";
-      case 7:
-        return "seven";
-      case 8:
-        return "eight";
-      case 9:
-        return "nine";
+
       case 10:
         return "ten";
       case 11:
@@ -89,6 +90,27 @@ export default Ember.Controller.extend({
         return "fourteen";
       case 15:
         return "fifteen";
+      case 16:
+        return "sixteen";
+      case 17:
+        return "seventeen";
+      case 18:
+        return "eighteen";
+      case 19:
+        return "nineteen";
+      case 20:
+        return "twenty";
+      case 21:
+        return "twenty-one";
+      case 22:
+        return "twenty-two";
+      case 23:
+        return "twenty-three";
+      case 24:
+        return "twenty-four";
+      case 25:
+        return "twenty-five";
+
     }
 
   }),
