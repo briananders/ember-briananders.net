@@ -48,7 +48,9 @@ export default Ember.Component.extend({
               max = 12;
 
           data.topalbums.album.forEach(function(album) {
-            if(album.image[album.image.length-1]['#text'].indexOf('default') === -1 && count !== max) {
+            if(!Ember.isEmpty(album.image[album.image.length-1]['#text']) &&
+                album.image[album.image.length-1]['#text'].indexOf('default') === -1 &&
+                count !== max) {
               album.image = album.image[album.image.length-1]['#text'];
               albums.push(album);
               count++;

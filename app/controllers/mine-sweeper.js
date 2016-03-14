@@ -17,16 +17,22 @@ export default Ember.Controller.extend({
 
   lastSquare: null,
 
-  numberOfRows: 25,
+  numberOfRows: 15,
 
-  numberOfColumns: 25,
+  numberOfColumns: 15,
 
   difficulty: 0.15,
 
   difficultyOptions: [
-    { text: "Easy",    value: 0.15 },
-    { text: "Medium",  value: 0.2 },
-    { text: "Hard",    value: 0.3 }
+    { text: "0.1",   value: 0.1 },
+    { text: "0.15",  value: 0.15 },
+    { text: "0.2",   value: 0.2 },
+    { text: "0.25",  value: 0.25 },
+    { text: "0.3",   value: 0.3 },
+    { text: "0.35",  value: 0.35 },
+    { text: "0.4",   value: 0.4 },
+    { text: "0.45",  value: 0.45 },
+    { text: "0.5",   value: 0.5 }
   ],
 
 
@@ -114,6 +120,10 @@ export default Ember.Controller.extend({
     }
 
   }),
+
+
+
+
 
 
 

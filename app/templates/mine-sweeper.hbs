@@ -1,23 +1,33 @@
 
-<div {{action "reset"}}>RESET</div>
+<div class="header-first-row">
+  <button {{action "reset"}}>RESET</button>
+</div>
 
-{{view "select"
-       content=difficultyOptions
-       optionValuePath="content.value"
-       optionLabelPath="content.text"
-       value=difficulty}}
+<div class="header-second-row">
+  <span class="no-break">
+    Mines/Squares: {{view "select"
+           content=difficultyOptions
+           optionValuePath="content.value"
+           optionLabelPath="content.text"
+           value=difficulty}}
+  </span>
 
-Rows: {{view "select"
-       content=rowOptions
-       optionValuePath="content.value"
-       optionLabelPath="content.text"
-       value=numberOfRows}}
+  <span class="no-break">
+    Rows: {{view "select"
+           content=rowOptions
+           optionValuePath="content.value"
+           optionLabelPath="content.text"
+           value=numberOfRows}}
+  </span>
 
-Columns: {{view "select"
-       content=columnOptions
-       optionValuePath="content.value"
-       optionLabelPath="content.text"
-       value=numberOfColumns}}
+  <span class="no-break">
+    Columns: {{view "select"
+           content=columnOptions
+           optionValuePath="content.value"
+           optionLabelPath="content.text"
+           value=numberOfColumns}}
+  </span>
+</div>
 
 <ul class="table">
   {{#each rowsAndColumns as |row|}}

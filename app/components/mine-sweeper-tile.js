@@ -78,7 +78,9 @@ export default Ember.Component.extend({
 
 
   iAmTheLastSquare: Ember.computed('lastSquare', 'model.location', function() {
-    if(Ember.isEmpty(this.get('lastSquare'))) return false;
+    if(Ember.isEmpty(this.get('lastSquare'))) {
+      return false;
+    }
 
     return this.get('lastSquare')[0] === this.get('model.location')[0] &&
            this.get('lastSquare')[1] === this.get('model.location')[1];

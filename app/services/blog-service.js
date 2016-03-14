@@ -54,6 +54,13 @@ export default Ember.Service.extend({
       image: "",
       date: "07/06/2014",
       tags: "Pictures"
+    }, {
+      route: "mine-sweeper",
+      title: "Brian Makes Mine-Sweeper",
+      description: "Mine-Sweeper is one of the best simple games around. So I made it here.",
+      image: "",
+      date: "03/014/2016",
+      tags: "Games"
     }
   ]
 
