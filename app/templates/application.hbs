@@ -1,20 +1,16 @@
-<svg class="galaxy" version="1.1" xmlns="http://www.w3.org/2000/svg" ></svg>
+<div class="content">
 
-<div class="container">
-
-  <div class="content">
-
-    <header id="header" itemscope itemtype="http://schema.org/Person">
+  <header id="header" itemscope itemtype="http://schema.org/Person">
+    <div class="container">
       <h1 class="name-link" {{action 'goHome'}}>Brian Anders</h1>
       <meta itemprop="name" content="Brian Anders">
       <meta itemprop="url" content="http://briananders.net">
       <meta itemprop="jobTitle" content="UX Engineer">
-    </header>
+    </div>
+  </header>
 
-    {{outlet}}
-
-  </div>
-
-  {{partial "external-links"}}
+  {{outlet}}
 
 </div>
+
+{{partial "external-links"}}

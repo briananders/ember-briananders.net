@@ -3,6 +3,12 @@ import Ember from 'ember';
 export default Ember.Component.extend({
 
 
+  tagName: 'section',
+
+
+  classNameBindings: [':instagram', 'error:hidden', 'noImages:hidden'],
+
+
   images: [],
 
 
@@ -41,7 +47,7 @@ export default Ember.Component.extend({
           var images = [];
 
           response.data.forEach(function(photo, index) {
-            if(index >= 12) {
+            if(index >= 16) {
               return;
             }
 

@@ -17,18 +17,34 @@ section.work {
     display: block;
   }
 
+  .work-row {
+    &.nest {
+      background-color: #2FC9EF;
+    }
+    &.principal {
+      background-color: #FFFFFF;
+    }
+    &.smith {
+      background-color: #EFEFEF;
+    }
+    &.graceland {
+      background-color: #FFFFFF;
+    }
+    &.anders {
+      background-color: #F5B547;
+    }
+  }
+
   .work-tile {
     width: 100%;
     height: 0;
     padding-top: 100%;
-    z-index: 0;
     @include transform(scale(1));
     @include transition(transform .2s ease, z-index .2s ease);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: 70%;
     position: relative;
-    z-index: 0;
 
     &.nest {
       background-color: #2FC9EF;
@@ -49,10 +65,6 @@ section.work {
     &.anders {
       background-color: #F5B547;
       background-image: url('/assets/images/work/anders.png');
-    }
-    &:hover {
-      @include transform(scale(.98));
-      z-index: 1;
     }
   }
 
@@ -123,37 +135,6 @@ section.work {
           padding-left: 20px;
         }
       }
-
-      &:nth-child(2n) {
-
-        .work-tile {
-          float: right;
-        }
-        .description-tile {
-          float: left;
-
-          p {
-            padding-left: 0;
-            padding-right: 20px;
-          }
-        }
-      }
-    }
-  }
-}
-
-
-
-
-
-
-
-
-html.lt-ie9 {
-  section.work {
-    .work-tile, .work-tile.nest {
-      width: 100%;
-      padding-top: 40%;
     }
   }
 }

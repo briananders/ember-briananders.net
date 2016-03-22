@@ -1,14 +1,14 @@
-// @import "compass";
-
 $gutter:    percentage(20px/940px); // 20px at 960px wide container, accounting for a 1/2 gutter width padding on the left and right of the container
 $onecol:                6.3829787%; // 60px at 960px wide container
 $columnsBreakPoint:          600px; // set this to the minimum width you want the columns to take effect at
 $containerMaxWidth:          1040px; // set this to the maximum width you want .container to have
 
 
+@import "colors";
 
-$text-gray: #C6C8CA;
-$darker-gray: #2C2E30;
+
+$background: #fafafa;
+$text-gray: #2F3133;
 $dark-gray: #2F3133;
 $grayer: #404244;
 $gray: #434547;
@@ -38,7 +38,8 @@ $Neon-Purple: #993CF3;
 
 @mixin font-size($sizeValue: 16) {
   font-size: $sizeValue + px;
-  font-size: ($sizeValue / 10) + rem;
+  font-size: ($sizeValue / 10) + vh;
+  // font-size: ($sizeValue / 10) + rem;
 }
 
 @mixin column-count($value:1) {

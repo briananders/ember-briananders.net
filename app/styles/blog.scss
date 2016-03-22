@@ -13,7 +13,8 @@ section.blog {
     @include font-size(20);
     line-height: 10px;
   }
-  .blog_tile {
+  .blog_tile,
+  .blog_tile:visited {
     line-height: 1.5;
     width: 100%;
     display: block;
@@ -24,7 +25,12 @@ section.blog {
     color: $text-gray;
     margin-bottom: 30px;
     position: relative;
-    text-align: center;
+    text-align: left;
+
+    &:hover,
+    &:visited:hover {
+      background-color: rgba(100,100,100,.2);
+    }
 
     h2 {
       margin: 0;
@@ -44,11 +50,30 @@ section.blog {
     }
 
     a {
-      color: $Neon-Orange;
+      color: $color-secondary-2-0;
 
       &:hover {
         color: $text-gray;
       }
+    }
+  }
+  .filter-list {
+    padding: 0;
+    margin: 0;
+  }
+  .filter-item {
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    list-style: none;
+  }
+  .filter-button {
+    border: none;
+    border-radius: 2px;
+    line-height: 2em;
+
+    &.active {
+      background: green;
     }
   }
 }
@@ -95,7 +120,7 @@ div {
   }
 }
 blockquote {
-  border-left: 5px solid $Neon-Orange;
+  border-left: 5px solid $color-secondary-2-0;
   margin: 0;
   padding: 40px;
 
@@ -107,7 +132,7 @@ blockquote {
 
 code {
   @include font-size(20);
-  color: $Neon-Orange;
+  color: $color-secondary-2-0;
 }
 
 

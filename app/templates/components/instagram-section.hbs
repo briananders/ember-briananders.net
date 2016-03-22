@@ -1,4 +1,4 @@
-<section class="instagram {{if error 'hidden'}} {{if noImages 'hidden'}}">
+<div class="container">
   <h2><a target="_blank" href="http://instagram.com/briananders" title="My Instagram profile">Instagram</a></h2>
 
   {{#each images as |photo|}}
@@ -6,4 +6,4 @@
       {{image-tag src=photo.url alt=photo.caption }}
     </a>
   {{/each}}
-</section>
+</div>

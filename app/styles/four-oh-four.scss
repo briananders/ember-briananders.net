@@ -34,7 +34,7 @@
 
     a {
       &:hover {
-        color: $Neon-Orange;
+        color: $color-secondary-2-0;
         @include text-shadow(1px 1px 0 $text-gray,
                              2px 2px 0 $text-gray,
                              3px 3px 0 $text-gray);

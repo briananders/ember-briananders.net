@@ -1,4 +1,4 @@
-<section class="albums {{if error 'hidden'}} {{if noAlbums 'hidden'}}">
+<div class="container">
   <h2><a target="_blank" href="http://www.last.fm/user/iBrianAnders" title="My Last.fm profile">Scrobbles</a></h2>
 
   {{#each albums as |album|}}
@@ -6,5 +6,4 @@
       {{image-tag src=album.image alt=album.name }}
     </a>
   {{/each}}
-</section>
-
+</div>
