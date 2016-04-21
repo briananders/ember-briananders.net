@@ -5,6 +5,9 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
     storeConfigInMeta: false,
+    gzip: {
+      keepUncompressed: true
+    },
     minifyJS: {
       enabled: EmberApp.env() === 'production'
     },
