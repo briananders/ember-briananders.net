@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.Component.extend({
 
 
-  tagName: 'section',
+  showDescription: false,
 
 
   classNameBindings: [':albums', 'error:hidden', 'noAlbums:hidden'],
@@ -16,6 +16,9 @@ export default Ember.Component.extend({
 
 
   error: false,
+
+
+  length: null,
 
 
   didInsertElement() {
@@ -51,7 +54,7 @@ export default Ember.Component.extend({
           }
           var albums = [],
               count = 0,
-              max = 16;
+              max = this.get('length');
 
           data.topalbums.album.forEach(function(album) {
             if(!Ember.isEmpty(album.image[album.image.length-1]['#text']) &&

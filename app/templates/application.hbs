@@ -3,6 +3,7 @@
   <header id="header" itemscope itemtype="http://schema.org/Person">
     <div class="container">
       <h1 class="name-link" {{action 'goHome'}}>Brian Anders</h1>
+      {{main-nav}}
       <meta itemprop="name" content="Brian Anders">
       <meta itemprop="url" content="http://briananders.net">
       <meta itemprop="jobTitle" content="UX Engineer">
@@ -10,6 +11,8 @@
   </header>
 
   {{outlet}}
+
+  {{main-nav class="container bottom-nav"}}
 
 </div>
 

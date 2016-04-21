@@ -1,9 +1,24 @@
-<div class="container">
-  <h2><a target="_blank" href="http://www.last.fm/user/iBrianAnders" title="My Last.fm profile">Scrobbles</a></h2>
-
-  {{#each albums as |album|}}
+{{#each albums as |album|}}
+  {{#if showDescription}}
+    <div class="album-tile">
+      <a target="_blank" href="{{album.url}}" class="album" title="{{album.name}}">
+        {{image-tag src=album.image alt=album.name }}
+      </a>
+      <ul>
+        <h3 class="name">
+          <a target="_blank"
+             href="{{album.url}}"
+             title="{{album.name}}">
+            {{album.name}}
+          </a>
+        </h3>
+        <li>By: <a href="{{album.artist.url}}" title="{{album.artist.name}}" target="_blank">{{album.artist.name}}</a></li>
+        <li>Total plays: {{album.playcount}}</li>
+      </ul>
+    </div>
+  {{else}}
     <a target="_blank" href="{{album.url}}" class="album" title="{{album.name}}">
       {{image-tag src=album.image alt=album.name }}
     </a>
-  {{/each}}
-</div>
+  {{/if}}
+{{/each}}

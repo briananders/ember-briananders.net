@@ -2,13 +2,20 @@
 {{partial "about-me"}}
 
 
-{{instagram-section}}
+<section class="instagram">
+  <div class="container">
+    <h2>{{#link-to 'instagram'}}Instagram{{/link-to}}</h2>
+    {{instagram-section length=4}}
+  </div>
+</section>
 
 
-{{scrobbles-section}}
-
-
-{{partial "work"}}
+<section class="albums">
+  <div class="container">
+    <h2>{{#link-to 'last-fm'}}Scrobbles{{/link-to}}</h2>
+    {{scrobbles-section length=4}}
+  </div>
+</section>
 
 
 {{blog-section class="thin"}}

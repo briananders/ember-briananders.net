@@ -37,11 +37,11 @@ export default Ember.Service.extend({
   }),
 
 
-  filterOptions: Ember.computed(function(){
-    var filters = this.get('dataArray').map(function(item, index, array){
+  filterOptions: Ember.computed(function() {
+    var filters = this.get('dataArray').map(function(item, index, array) {
       return item.get('tags').join();
     });
-    filters = filters.join().split(',').sort().filter(function(item, pos, self) {
+    filters = filters.join().toLowerCase().split(',').sort().filter(function(item, pos, self) {
       return self.indexOf(item) === pos;
     });
     return filters;

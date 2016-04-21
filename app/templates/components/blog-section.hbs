@@ -1,5 +1,5 @@
 <div class="container">
-  <h2>Blog</h2>
+  <h2>{{#link-to "knowledge"}}Knowledge{{/link-to}}</h2>
   <ul class="filter-list">
     Filter By:
     <li class="filter-item">
@@ -7,19 +7,19 @@
     </li>
     {{#each blogService.filterOptions as |filter|}}
       <li class="filter-item">
-        <button class="filter-button {{active filter blogService.blogFilter}}" {{action "setFilter" filter}}>{{filter}}</button>
+        <button class="filter-button {{active filter blogService.blogFilter}}" {{action "setFilter" filter}}>{{capitalize filter}}</button>
       </li>
     {{/each}}
   </ul>
   <div>
     {{#each sortedBlogs as |blog|}}
-      {{#link-to blog.route class="blog_tile"}}
+      {{#link-to blog.route class="blog-tile"}}
         <span itemscope itemtype="http://schema.org/BlogPosting">
           <h3 itemprop="name">{{blog.title}}</h3>
           <meta itemprop="author" content="Brian Anders">
           <meta itemprop="url" content="http://briananders.net/{{blog.route}}">
           <time datetime="{{blog.date}}" itemprop="datePublished">[{{blog.date}}]</time>
-          {{blog.description}}
+          <span class="description">{{blog.description}}</span>
         </span>
       {{/link-to}}
     {{/each}}

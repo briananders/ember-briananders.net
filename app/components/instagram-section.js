@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.Component.extend({
 
 
-  tagName: 'section',
+  showDescription: false,
 
 
   classNameBindings: [':instagram', 'error:hidden', 'noImages:hidden'],
@@ -16,6 +16,9 @@ export default Ember.Component.extend({
 
 
   error: false,
+
+
+  length: null,
 
 
   didInsertElement() {
@@ -47,14 +50,15 @@ export default Ember.Component.extend({
           var images = [];
 
           response.data.forEach(function(photo, index) {
-            if(index >= 16) {
+            if(index >= this.get('length')) {
               return;
             }
 
             photo.caption = (photo.caption === null ? 'no caption' : photo.caption.text);
             photo.url = (window.isRetina ? photo.images.standard_resolution.url : photo.images.low_resolution.url);
+            photo.data = photo;
             images.push(photo);
-          });
+          }.bind(this));
 
           this.set('images', images);
 

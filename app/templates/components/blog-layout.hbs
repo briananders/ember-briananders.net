@@ -1,16 +1,17 @@
-<div class="blog_container" itemscope itemtype="http://schema.org/BlogPosting">
+<div class="blog-container" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <h1>
+  <h2>
     {{blogService.title}}
-    <div class="blog-date">
-      ({{blogService.date}})
-    </div>
 
     <meta itemprop="author" content="Brian Anders">
     <meta itemprop="url" content="http://briananders.net/{{blogService.route}}">
     <meta itemprop="name" content="{{blogService.title}}">
     <meta itemprop="datePublished" content="{{blogService.date}}">
-  </h1>
+  </h2>
+
+  <div class="blog-date">
+    [{{blogService.date}}]
+  </div>
 
   {{yield}}
 

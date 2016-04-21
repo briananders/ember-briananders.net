@@ -8,6 +8,7 @@
 
 
 section.work {
+  padding-bottom: 0;
 
   > h2 {
     margin-bottom: 10px;
@@ -83,58 +84,58 @@ section.work {
 
 
 
-@include mq(400px) {
-  section.work {
-    .work-tile {
-      padding-top: 50%;
+// @include mq(400px) {
+//   section.work {
+//     .work-tile {
+//       padding-top: 50%;
 
-      &.smith {
-        background-size: auto 70%;
-      }
-    }
-  }
-}
-
-
+//       &.smith {
+//         background-size: auto 70%;
+//       }
+//     }
+//   }
+// }
 
 
 
 
-@include mq(700px) {
-  section.work {
-    .work-tile {
-      width: 40%;
-      float: left;
 
-      &.nest {
-        width: 100%;
-      }
-      &.smith {
-        background-size: 70%;
-      }
-    }
-    .nest > a {
-      display: block;
-      overflow: hidden;
-    }
-    .row {
-      overflow: hidden;
 
-      .description-tile {
-        width: 60%;
-        float: right;
-        padding-top: 50%;
-        height: 0;
-        position: relative;
+// @include mq(700px) {
+//   section.work {
+//     .work-tile {
+//       width: 40%;
+//       float: left;
 
-        p {
-          position: absolute;
-          top: 50%;
-          @include transform(translateY(-50%));
-          margin: 0;
-          padding-left: 20px;
-        }
-      }
-    }
-  }
-}
+//       &.nest {
+//         width: 100%;
+//       }
+//       &.smith {
+//         background-size: 70%;
+//       }
+//     }
+//     .nest > a {
+//       display: block;
+//       overflow: hidden;
+//     }
+//     .row {
+//       overflow: hidden;
+
+//       .description-tile {
+//         width: 60%;
+//         float: right;
+//         padding-top: 50%;
+//         height: 0;
+//         position: relative;
+
+//         p {
+//           position: absolute;
+//           top: 50%;
+//           @include transform(translateY(-50%));
+//           margin: 0;
+//           padding-left: 5vw;
+//         }
+//       }
+//     }
+//   }
+// }
