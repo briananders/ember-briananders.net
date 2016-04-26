@@ -1,17 +1,30 @@
 .mine-sweeper {
 
   .table {
-    margin-bottom: 30px;
+    margin-bottom: 5vw;
     font-family: "Courier New", Courier, monospace;
     font-weight: bold;
   }
 
+  table {
+    width: 100%;
+  }
+
   .header-first-row {
-    margin-bottom: 20px;
-    text-align: center;
+    margin-bottom: 5vw;
+    margin-top: 5vw;
+    text-align: justify;
+    font-size: 0.001px;
+
+    &:after {
+      content: '';
+      width: 100%; /* Ensures there are at least 2 lines of text, so justification works */
+      display: inline-block;
+    }
+
   }
   .header-second-row {
-    margin-bottom: 20px;
+    margin-bottom: 5vw;
     text-align: center;
   }
   .no-break {
@@ -36,6 +49,14 @@
     box-sizing: border-box;
   }
 
+  .column-count-eight {
+    width: 100px / 8px * 1%;
+    padding-top: 100px / 8px * 1%;
+  }
+  .column-count-nine {
+    width: 100px / 9px * 1%;
+    padding-top: 100px / 9px * 1%;
+  }
   .column-count-ten {
     width: 100px / 10px * 1%;
     padding-top: 100px / 10px * 1%;
@@ -104,6 +125,8 @@
   .row {
     height: 0;
 
+    &.column-count-eight,
+    &.column-count-nine,
     &.column-count-ten,
     &.column-count-eleven,
     &.column-count-twelve,
@@ -152,7 +175,8 @@
     background-position-y: 24.6%;
     background-position-x: 62.5%;
 
-    &.flag {
+    &.flag,
+    &.mine.flag {
       background-position-y: 24.6%;
       background-position-x: 50%;
     }
@@ -166,7 +190,8 @@
       background-position-y: 24.6%;
       background-position-x: 0;
 
-      &.red {
+      &.red,
+      &.flag.red {
         background-position-y: 24.6%;
         background-position-x: 25%;
       }
@@ -241,4 +266,88 @@
       background-position-x: 100%;
     }
   }
+
+  .time,
+  .mine-count-down {
+    overflow: hidden;
+    display: inline-block;
+  }
+
+  .number {
+    display: block;
+    float: left;
+    @include image-2x('/assets/images/blog/mine-sweeper/sprite.png', '/assets/images/blog/mine-sweeper/sprite.png');
+    background-repeat: no-repeat;
+    background-size: 1100%;
+    image-rendering: pixelated;
+    width: 39px;
+    height: 69px;
+    background-position-y: 55.5%;
+
+    &.number-0 {
+      background-position-x: 892px/90px * 0%;
+    }
+    &.number-1 {
+      background-position-x: 892px/90px * 1%;
+    }
+    &.number-2 {
+      background-position-x: 892px/90px * 2%;
+    }
+    &.number-3 {
+      background-position-x: 892px/90px * 3%;
+    }
+    &.number-4 {
+      background-position-x: 892px/90px * 4%;
+    }
+    &.number-5 {
+      background-position-x: 892px/90px * 5%;
+    }
+    &.number-6 {
+      background-position-x: 892px/90px * 6%;
+    }
+    &.number-7 {
+      background-position-x: 892px/90px * 7%;
+    }
+    &.number-8 {
+      background-position-x: 892px/90px * 8%;
+    }
+    &.number-9 {
+      background-position-x: 892px/90px * 9%;
+    }
+  }
+
+  .face-button {
+    width: 52px;
+    height: 52px;
+    position: relative;
+    top: -8.5px;
+    display: inline-block;
+    @include image-2x('/assets/images/blog/mine-sweeper/sprite.png', '/assets/images/blog/mine-sweeper/sprite.png');
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background-size: auto 311.5384615%;
+    background-position-y: 100%;
+    background-position-x: 22.06%;
+
+    &.sunglasses {
+      background-position-x: 88.24%;
+    }
+
+    &.dead {
+      background-position-x: 66.18%;
+    }
+
+    &.o {
+      background-position-x: 44.12%;
+    }
+
+    &.down {
+      background-position-x: 0%;
+    }
+  }
 }
+
+//26 x 26

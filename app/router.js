@@ -8,7 +8,7 @@ var Router = Ember.Router.extend({
 Router.map(function() {
   this.route('index', { path: "/" });
   this.route('experience');
-  this.route('knowledge');
+  this.route('thoughts');
 
   //404
   this.route('four-oh-four', { path: "/*wildcard" });

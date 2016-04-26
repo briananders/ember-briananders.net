@@ -3,13 +3,41 @@ import MineSweeperTileModel from '../models/mine-sweeper-tile';
 
 export default Ember.Controller.extend({
 
-
+//Beginner (8x8, 10 mines),
+//Intermediate (16x16, 40 mines)
+//Expert (24x24, 99 mines)
+//Custom (0-25, 0-25, 0-99)
 
 ////////////////////////////////////////////// properties
 
 
+  time: 0,
+
+  timeOnes: Ember.computed('time', function() {
+    return this.get('time') % 10;
+  }),
+
+  timeTens: Ember.computed('time', function() {
+    return Math.floor(this.get('time') / 10 % 10);
+  }),
+
+  timeHundreds: Ember.computed('time', function() {
+    return Math.floor(this.get('time') / 100);
+  }),
+
+
+
+  tileMouseDown: false,
+
+
+
+  isPlaying: false,
 
   minesSet: false,
+
+  inactiveSquares: [],
+
+  totalFlags: 0,
 
   rowsAndColumns: [],
 
@@ -17,62 +45,60 @@ export default Ember.Controller.extend({
 
   lastSquare: null,
 
-  numberOfRows: 15,
-
-  numberOfColumns: 15,
-
-  difficulty: 0.15,
-
-  difficultyOptions: [
-    { text: "0.1",   value: 0.1 },
-    { text: "0.15",  value: 0.15 },
-    { text: "0.2",   value: 0.2 },
-    { text: "0.25",  value: 0.25 },
-    { text: "0.3",   value: 0.3 },
-    { text: "0.35",  value: 0.35 },
-    { text: "0.4",   value: 0.4 },
-    { text: "0.45",  value: 0.45 },
-    { text: "0.5",   value: 0.5 }
-  ],
 
 
-  rowOptions: [
-    { text: "10",    value: 10  },
-    { text: "11",    value: 11  },
-    { text: "12",    value: 12  },
-    { text: "13",    value: 13  },
-    { text: "14",    value: 14  },
-    { text: "15",    value: 15  },
-    { text: "16",    value: 16  },
-    { text: "17",    value: 17  },
-    { text: "18",    value: 18  },
-    { text: "19",    value: 19  },
-    { text: "20",    value: 20  },
-    { text: "21",    value: 21  },
-    { text: "22",    value: 22  },
-    { text: "23",    value: 23  },
-    { text: "24",    value: 24  },
-    { text: "25",    value: 25  }
-  ],
+  difficulty: "Beginner",
 
-  columnOptions: [
-    { text: "10",    value: 10  },
-    { text: "11",    value: 11  },
-    { text: "12",    value: 12  },
-    { text: "13",    value: 13  },
-    { text: "14",    value: 14  },
-    { text: "15",    value: 15  },
-    { text: "16",    value: 16  },
-    { text: "17",    value: 17  },
-    { text: "18",    value: 18  },
-    { text: "19",    value: 19  },
-    { text: "20",    value: 20  },
-    { text: "21",    value: 21  },
-    { text: "22",    value: 22  },
-    { text: "23",    value: 23  },
-    { text: "24",    value: 24  },
-    { text: "25",    value: 25  }
-  ],
+  difficultyOptions: ["Beginner", "Intermediate", "Expert"],
+
+
+
+  numberOfRows: Ember.computed('difficulty', function() {
+
+    switch(this.get('difficulty')) {
+      case "Beginner":
+        return 8;
+      case "Intermediate":
+        return 16;
+      default:
+        return 24;
+    }
+
+  }),
+
+  numberOfColumns: Ember.computed('difficulty', function() {
+
+    switch(this.get('difficulty')) {
+      case "Beginner":
+        return 8;
+      case "Intermediate":
+        return 16;
+      default:
+        return 24;
+    }
+
+  }),
+
+  mineCount: Ember.computed('difficulty', function() {
+
+    switch(this.get('difficulty')) {
+      case "Beginner":
+        return 10;
+      case "Intermediate":
+        return 40;
+      default:
+        return 99;
+    }
+
+  }),
+
+
+
+  // mineOptions: [10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 99],
+
+  // rowOptions: [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
+
+  // columnOptions: [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
 
 
 
@@ -80,10 +106,43 @@ export default Ember.Controller.extend({
 
 
 
+  // isCustom: Ember.computed.equal('difficulty', "Custom"),
+
+
+
+  mineCountMinusFlags: Ember.computed('mineCount', 'totalFlags', function() {
+    return this.get('mineCount') - this.get('totalFlags');
+  }),
+
+  mineCountMinusFlagsOnes: Ember.computed('mineCountMinusFlags', function() {
+    return this.get('mineCountMinusFlags') % 10;
+  }),
+
+  mineCountMinusFlagsTens: Ember.computed('mineCountMinusFlags', function() {
+    return Math.floor(this.get('mineCountMinusFlags') / 10 % 10);
+  }),
+
+  mineCountMinusFlagsHundreds: Ember.computed('mineCountMinusFlags', function() {
+    return Math.floor(this.get('mineCountMinusFlags') / 100);
+  }),
+
+
+
+
+  hasWon: Ember.computed('inactiveSquares', 'mineCount', function() {
+    return this.get('inactiveSquares.length') === this.get('mineCount');
+  }),
+
+
+
   columnWidthClass: Ember.computed('numberOfColumns', function() {
 
     switch(this.get('numberOfColumns')) {
 
+      case 8:
+        return "eight";
+      case 9:
+        return "nine";
       case 10:
         return "ten";
       case 11:
@@ -123,15 +182,68 @@ export default Ember.Controller.extend({
 
 
 
+  singleArray: Ember.computed('rowsAndColumns', function() {
+
+    var rowsAndColumns = this.get('rowsAndColumns');
+    var ret = [];
+
+    for(var r = 0; r < this.get('numberOfRows'); r++) {
+      ret = ret.concat(rowsAndColumns[r]);
+    }
+
+    return ret;
+
+  }),
 
 
 
-
-  observesRowsAndColumns: Ember.observer('numberOfRows', 'numberOfColumns', 'difficulty', function() {
+  observesRowsAndColumns: Ember.observer('numberOfRows', 'numberOfColumns', 'mineCount', function() {
 
     this.send('reset');
 
   }),
+
+
+
+  observesHasWon: Ember.observer('hasWon', function() {
+
+    if(this.get('hasWon')) {
+      var inactiveSquares = this.get('inactiveSquares');
+      inactiveSquares.forEach(function(column) {
+        column.set('flag', true);
+      });
+      this.countFlags();
+    }
+
+  }),
+
+
+
+  // observesDifficulty: Ember.observer('difficulty', function() {
+
+  //   var difficulty = this.get('difficulty');
+  //   switch(difficulty) {
+  //     case "Beginner":
+  //       this.set('numberOfRows', 8);
+  //       this.set('numberOfColumns', 8);
+  //       this.set('mineCount', 10);
+  //       break;
+  //     case "Intermediate":
+  //       this.set('numberOfRows', 16);
+  //       this.set('numberOfColumns', 16);
+  //       this.set('mineCount', 40);
+  //       break;
+  //     case "Expert":
+  //       this.set('numberOfRows', 24);
+  //       this.set('numberOfColumns', 24);
+  //       this.set('mineCount', 99);
+  //       break;
+  //     default:
+  //       break;
+  //   }
+  //   console.log(this.get('isCustom'));
+
+  // }),
 
 
 
@@ -170,12 +282,10 @@ export default Ember.Controller.extend({
     var numberOfRows = this.get('numberOfRows');
     var numberOfColumns = this.get('numberOfColumns');
     var rowsAndColumns = this.get('rowsAndColumns');
-    var mineCount = Math.round((numberOfRows * numberOfColumns) * this.get('difficulty'));
+    var mineCount = this.get('mineCount');
 
     var randomRow;
     var randomColumn;
-
-    console.log('mineCount %@'.fmt(mineCount));
 
     while(mineCount > 0) {
 
@@ -190,15 +300,66 @@ export default Ember.Controller.extend({
 
     }
 
-    console.log('mineCount %@'.fmt(mineCount));
-
     this.set('minesSet', true);
 
   },
 
 
 
-  countFlags(location) {
+  findInactiveSquares() {
+
+    var columns = this.get('singleArray');
+    var inactiveSquares = [];
+
+    columns.forEach(function(column) {
+      if(!column.get('active')) {
+        inactiveSquares.push(column)
+      }
+    });
+
+    this.set('inactiveSquares', inactiveSquares);
+
+  },
+
+
+
+  startClock() {
+
+    window.interval = setInterval(function() {
+
+      if(this.get('time') === 999) {
+        this.set('gameOver', true);
+      }
+
+      if(!(this.get('gameOver') || this.get('hasWon'))) {
+        this.set('time', this.get('time') + 1);
+        this.findInactiveSquares();
+      } else {
+        clearInterval(window.interval);
+        window.interval = undefined;
+      }
+
+    }.bind(this), 1000);
+
+  },
+
+
+
+  playing() {
+
+    this.countFlags();
+    this.findInactiveSquares();
+
+    if(window.interval === undefined) {
+      this.set('isPlaying', true);
+      this.startClock();
+    }
+
+  },
+
+
+
+  countLocalFlags(location) {
 
     var flagCount = 0;
 
@@ -215,6 +376,21 @@ export default Ember.Controller.extend({
     }
 
     return flagCount;
+
+  },
+
+
+
+  countFlags() {
+
+    var columns = this.get('singleArray');
+    var count = 0;
+
+    columns.forEach(function(column) {
+      count += (column.get('flag') ? 1 : 0);
+    });
+
+    this.set('totalFlags', count);
 
   },
 
@@ -274,7 +450,7 @@ export default Ember.Controller.extend({
 
       Ember.run.next(this, function() {
 
-        if(value === this.countFlags(location)) {
+        if(value === this.countLocalFlags(location)) {
 
           this.revealSurrounding(location);
 
@@ -296,11 +472,17 @@ export default Ember.Controller.extend({
 
     reset() {
 
+      clearInterval(window.interval);
+      window.interval = undefined;
+      this.set('time', 0);
+      this.set('isPlaying', false);
       this.set('minesSet', false);
       this.set('rowsAndColumns', []);
       this.set('gameOver', false);
       this.set('lastSquare', null);
       this.setupTable();
+      this.countFlags();
+      this.findInactiveSquares();
 
     }
 

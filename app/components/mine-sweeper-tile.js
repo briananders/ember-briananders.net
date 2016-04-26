@@ -111,6 +111,8 @@ export default Ember.Component.extend({
       }
     }
 
+    this.get('model.controller').playing();
+
   },
 
 
@@ -126,9 +128,27 @@ export default Ember.Component.extend({
 
     if(!this.get('model.active')) {
       this.toggleProperty('model.flag');
+
+      this.get('model.controller').countFlags();
     }
 
+    this.get('model.controller').playing();
+
   },
+
+
+
+  mouseDown(e) {
+    if(e.which === 1 && !this.get('model.active') && !this.get('gameOver')) {
+      this.set('model.controller.tileMouseDown', true);
+    }
+  },
+
+
+
+  mouseUp(e) {
+    this.set('model.controller.tileMouseDown', false);
+  }
 
 
 

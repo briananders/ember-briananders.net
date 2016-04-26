@@ -1,44 +1,62 @@
+{{#blog-layout}}
+  <div class="header-first-row">
+    <span class="time">
+      <span class="number number-{{timeHundreds}}"></span>
+      <span class="number number-{{timeTens}}"></span>
+      <span class="number number-{{timeOnes}}"></span>
+    </span>
+    <button {{action "reset"}} class="face-button {{if tileMouseDown 'o'}} {{if hasWon 'sunglasses'}} {{if gameOver 'dead'}}"></button>
+    <span class="mine-count-down">
+      <span class="number number-{{mineCountMinusFlagsHundreds}}"></span>
+      <span class="number number-{{mineCountMinusFlagsTens}}"></span>
+      <span class="number number-{{mineCountMinusFlagsOnes}}"></span>
+    </span>
+  </div>
 
-<div class="header-first-row">
-  <button {{action "reset"}}>RESET</button>
-</div>
+  <div class="header-second-row">
 
-<div class="header-second-row">
-  <span class="no-break">
-    Mines/Squares: {{view "select"
-           content=difficultyOptions
-           optionValuePath="content.value"
-           optionLabelPath="content.text"
-           value=difficulty}}
-  </span>
+    <div>
+      {{view "select"
+        content=difficultyOptions
+        value=difficulty}}
+    </div>
 
-  <span class="no-break">
-    Rows: {{view "select"
-           content=rowOptions
-           optionValuePath="content.value"
-           optionLabelPath="content.text"
-           value=numberOfRows}}
-  </span>
+    {{!-- {{#if isCustom}}
+      <div>
+        <span class="no-break">
+          Mines: {{view "select"
+                 content=mineOptions
+                 value=mineCount}}
+        </span>
 
-  <span class="no-break">
-    Columns: {{view "select"
-           content=columnOptions
-           optionValuePath="content.value"
-           optionLabelPath="content.text"
-           value=numberOfColumns}}
-  </span>
-</div>
+        <span class="no-break">
+          Rows: {{view "select"
+                 content=rowOptions
+                 value=numberOfRows}}
+        </span>
 
-<ul class="table">
-  {{#each rowsAndColumns as |row|}}
-    <li class="row column-count-{{columnWidthClass}}">
-      <ul>
-        {{#each row as |rowColumn|}}
-          <li class="column column-count-{{columnWidthClass}}">
-            {{mine-sweeper-tile model=rowColumn}}
-          </li>
-        {{/each}}
-      </ul>
-    </li>
-  {{/each}}
-</ul>
+        <span class="no-break">
+          Columns: {{view "select"
+                 content=columnOptions
+                 value=numberOfColumns}}
+        </span>
+      </div>
+    {{/if}} --}}
+
+  </div>
+
+  <ul class="table">
+    {{#each rowsAndColumns as |row|}}
+      <li class="row column-count-{{columnWidthClass}}">
+        <ul>
+          {{#each row as |rowColumn|}}
+            <li class="column column-count-{{columnWidthClass}}">
+              {{mine-sweeper-tile model=rowColumn}}
+            </li>
+          {{/each}}
+        </ul>
+      </li>
+    {{/each}}
+  </ul>
+
+{{/blog-layout}}

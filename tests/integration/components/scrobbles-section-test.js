@@ -1,7 +1,7 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('scrobbles-section', 'Integration | Component | scrobbles section', {
+moduleForComponent('albums-scrobbles-section', 'Integration | Component | albums scrobbles section', {
   integration: true
 });
 
@@ -11,15 +11,15 @@ test('it renders', function(assert) {
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.render(hbs`{{scrobbles-section}}`);
+  this.render(hbs`{{albums-scrobbles-section}}`);
 
   assert.equal(this.$().text().trim(), '');
 
   // Template block usage:
   this.render(hbs`
-    {{#scrobbles-section}}
+    {{#albums-scrobbles-section}}
       template block text
-    {{/scrobbles-section}}
+    {{/albums-scrobbles-section}}
   `);
 
   assert.equal(this.$().text().trim(), 'template block text');

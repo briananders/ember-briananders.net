@@ -3,13 +3,16 @@ import Ember from 'ember';
 export default Ember.Component.extend({
 
 
+  stateService: Ember.inject.service('state'),
+
+
   showDescription: false,
 
 
   classNameBindings: [':instagram', 'error:hidden', 'noImages:hidden'],
 
 
-  images: [],
+  images: Ember.computed.alias('stateService.instagram'),
 
 
   noImages: Ember.computed.empty('images'),
@@ -33,41 +36,41 @@ export default Ember.Component.extend({
         User: '196017474'
       };
 
-      Ember.$.ajax({
-        type: 'GET',
-        url: 'https://api.instagram.com/v1/users/' +
-              iOpts.User +
-              '/media/recent/?client_id=' +
-              iOpts.APIkey,
-        dataType: 'jsonp',
-        success: function(response) {
+      if(Ember.isEmpty(this.get('stateService.instagram'))) {
 
-          if(response.data === undefined) {
-            this.set('error', true);
-            return;
-          }
+        Ember.$.ajax({
+          type: 'GET',
+          url: 'https://api.instagram.com/v1/users/' +
+                iOpts.User +
+                '/media/recent/?client_id=' +
+                iOpts.APIkey,
+          dataType: 'jsonp',
+          success: function(response) {
 
-          var images = [];
-
-          response.data.forEach(function(photo, index) {
-            if(index >= this.get('length')) {
+            if(response.data === undefined) {
+              this.set('error', true);
               return;
             }
 
-            photo.caption = (photo.caption === null ? 'no caption' : photo.caption.text);
-            photo.url = (window.isRetina ? photo.images.standard_resolution.url : photo.images.low_resolution.url);
-            photo.data = photo;
-            images.push(photo);
-          }.bind(this));
+            var images = [];
 
-          this.set('images', images);
+            response.data.forEach(function(photo, index) {
+              photo.caption = (photo.caption === null ? 'no caption' : photo.caption.text);
+              photo.url = (window.isRetina ? photo.images.standard_resolution.url : photo.images.low_resolution.url);
+              photo.data = photo;
+              images.push(photo);
+            }.bind(this));
 
-        }.bind(this),
-        error: function() {
-          this.set('error', true);
-        }.bind(this)
+            this.set('stateService.instagram', images);
 
-      });
+          }.bind(this),
+          error: function() {
+            this.set('error', true);
+          }.bind(this)
+        });
+      }
+
+
     });
   }
 

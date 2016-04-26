@@ -60,11 +60,9 @@ body {
 
 h1, h2, h3 {
   font-weight: 700;
-  // @include text-shadow(0px 1px 0px $text-border,
-  //                      0px 2px 0px $text-border);
   color: $color-primary-0;
   text-align: left;
-  font-family: Impact, Charcoal, sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 h1 {
@@ -101,7 +99,7 @@ nav {
   margin: 0;
   line-height: 7vw;
   color: $color-secondary-2-0;
-  font-family: Impact, Charcoal, sans-serif;
+  font-family: 'Alegreya Sans SC', sans-serif;
 
   ul {
     list-style: none;
@@ -117,7 +115,7 @@ nav {
     border-right: 2px solid $text-gray;
     box-sizing: content-box;
     float: left;
-    font-size: 6.3vw;
+    font-size: 7.3vw;
 
     &:hover,
     a:hover {
@@ -189,7 +187,7 @@ header {
   border-bottom: 1vw solid $color-secondary-2-0;
 
   h1 {
-    font-size: 17.8vw;
+    font-size: 16vw;
   }
 }
 
@@ -299,8 +297,9 @@ p {
 }
 
 select {
-  height: 50px;
+  height: 7vw;
   border-radius: 0;
+  font-size: 3vw;
 }
 
 section:nth-child(2n) {
