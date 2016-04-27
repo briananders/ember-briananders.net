@@ -2,14 +2,12 @@
   <h2>{{#link-to "thoughts"}}Thoughts{{/link-to}}</h2>
   <ul class="filter-list">
     Filter By:
-    <li class="filter-item">
-      <button class="filter-button {{active "all" blogService.blogFilter}}" {{action "setFilter" 'all'}}>All</button>
-    </li>
-    {{#each blogService.filterOptions as |filter|}}
-      <li class="filter-item">
-        <button class="filter-button {{active filter blogService.blogFilter}}" {{action "setFilter" filter}}>{{capitalize filter}}</button>
-      </li>
-    {{/each}}
+    <select onchange={{action "setFilter" value="target.value"}}>
+      <option value="all" selected={{eq blogService.blogFilter "all"}}>All</option>
+      {{#each blogService.filterOptions as |filter|}}
+        <option value={{filter}} selected={{eq blogService.blogFilter filter}}>{{capitalize filter}}</option>
+      {{/each}}
+    </select>
   </ul>
   <div>
     {{#each sortedBlogs as |blog|}}

@@ -1,28 +1,30 @@
-{{#each images as |photo|}}
-  {{#if showDescription}}
-    <div class="image-tile">
+{{#each images as |photo index|}}
+  {{#if (lt index length)}}
+    {{#if showDescription}}
+      <div class="image-tile">
+        <a class="image" target="_blank" href="{{photo.link}}" title="{{photo.caption}}">
+          {{image-tag src=photo.url alt=photo.caption }}
+        </a>
+        <ul>
+          <h3 class="caption">
+            <a href="{{photo.link}}"
+               title="{{photo.caption}}"
+               target="_blank">{{photo.caption}}</a>
+          </h3>
+          <li>Filter: {{photo.data.filter}}</li>
+          <li>
+            <a href="https://www.instagram.com/{{photo.data.user.username}}"
+               title="@{{photo.data.user.username}}"
+               target="_blank">
+               @{{photo.data.user.username}}
+            </a>
+          </li>
+        </ul>
+      </div>
+    {{else}}
       <a class="image" target="_blank" href="{{photo.link}}" title="{{photo.caption}}">
         {{image-tag src=photo.url alt=photo.caption }}
       </a>
-      <ul>
-        <h3 class="caption">
-          <a href="{{photo.link}}"
-             title="{{photo.caption}}"
-             target="_blank">{{photo.caption}}</a>
-        </h3>
-        <li>Filter: {{photo.data.filter}}</li>
-        <li>
-          <a href="https://www.instagram.com/{{photo.data.user.username}}"
-             title="@{{photo.data.user.username}}"
-             target="_blank">
-             @{{photo.data.user.username}}
-          </a>
-        </li>
-      </ul>
-    </div>
-  {{else}}
-    <a class="image" target="_blank" href="{{photo.link}}" title="{{photo.caption}}">
-      {{image-tag src=photo.url alt=photo.caption }}
-    </a>
+    {{/if}}
   {{/if}}
 {{/each}}

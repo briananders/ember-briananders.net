@@ -7,10 +7,6 @@ section.blog {
   margin-bottom: 0;
   padding-bottom: 0;
 
-  .dot-dot-dot {
-    font-size: 20px;
-    line-height: 10px;
-  }
   .blog-tile,
   .blog-tile:visited {
     line-height: 1.5;
@@ -150,4 +146,51 @@ code {
     display: block;
     margin: 10px auto;
   }
+}
+
+
+
+
+
+
+
+@include mq(500px) {
+
+  section.blog {
+    .blog-tile,
+    .blog-tile:visited {
+      margin-bottom: 12.5px;
+      padding-bottom: 12.5px;
+    }
+    .filter-list {
+      margin: 0 0 15px;
+      line-height: 40px;
+      font-size: 20px;
+    }
+    .filter-button {
+      font-size: 20px;
+      line-height: 20px;
+    }
+  }
+
+  a.image-holder {
+    margin-bottom: 10px;
+  }
+  blockquote {
+    padding: 50px;
+  }
+
+  code {
+    font-size: 15px;
+    padding: 15px;
+    border: 5px solid #FFA700;
+  }
+
+
+
+
+  .blog-container {
+    padding: 25px 15px;
+  }
+
 }

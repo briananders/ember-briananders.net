@@ -462,12 +462,21 @@ export default Ember.Controller.extend({
 
 
 
+    selectDifficulty(difficulty) {
+
+      this.set('difficulty', difficulty);
+
+    },
+
+
+
     lose(location) {
 
       this.set('gameOver', true);
       this.set('lastSquare', location);
 
     },
+
 
 
     reset() {
@@ -485,6 +494,7 @@ export default Ember.Controller.extend({
       this.findInactiveSquares();
 
     }
+
 
   },
 

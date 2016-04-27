@@ -112,7 +112,7 @@ nav {
     padding: 0;
     margin: 0;
     display: inline-block;
-    border-right: 2px solid $text-gray;
+    border-right: 0.4vw solid $text-gray;
     box-sizing: content-box;
     float: left;
     font-size: 7.3vw;
@@ -201,11 +201,6 @@ header {
   @include box-sizing(border-box);
 }
 
-.blog-date {
-  // font-size: 4.4vw;
-  // margin-top: 10px;
-}
-
 p {
   font-size: 4.4vw;
   line-height: 1.5;
@@ -247,21 +242,42 @@ p {
     width: 20%;
     float: left;
     height: 60px;
+    @include transition(background-color 0.4s ease);
 
     &.instagram {
-      background-color: #517FA4;
+      background-color: rgb(124, 124, 124);
+
+      &:hover {
+        background-color: rgb(81, 127, 164);
+      }
     }
     &.twitter {
-      background-color: #33CCFF;
+      background-color: rgb(170, 170, 170);
+
+      &:hover {
+        background-color: rgb(51, 204, 255);
+      }
     }
     &.lastfm {
-      background-color: #E02F2F;
+      background-color: rgb(113, 113, 113);
+
+      &:hover {
+        background-color: rgb(224, 47, 47);
+      }
     }
     &.linkedin {
-      background-color: #328FF1;
+      background-color: rgb(145, 145, 145);
+
+      &:hover {
+        background-color: rgb(50, 143, 241);
+      }
     }
     &.github {
-      background-color: $dark-gray;
+      background-color: rgb(152, 152, 152);
+
+      &:hover {
+        background-color: rgb(153, 60, 243);
+      }
     }
   }
 
@@ -285,8 +301,8 @@ p {
     @include transition(transform .25s ease);
   }
   span {
-    position: relative;
     font-size: 12px;
+    position: relative;
     display: block;
     margin-top: -20px;
     padding-top: 7px;
@@ -297,9 +313,9 @@ p {
 }
 
 select {
+  font-size: 3vw;
   height: 7vw;
   border-radius: 0;
-  font-size: 3vw;
 }
 
 section:nth-child(2n) {
@@ -330,24 +346,97 @@ section:nth-child(2n) {
 
 
 
-@include mq(600px) {
-  .links {
+@include mq(500px) {
+
+  body {
+    @include font-size(22);
+  }
+
+  h1 {
+    font-size: 60px;
+    margin: 25px 0;
+  }
+
+  h2 {
+    font-size: 45px;
+    margin-bottom: 25px;
+  }
+
+  h3 {
+    font-size: 30px;
+    margin-bottom: 25px;
+  }
+
+  nav {
+    padding-bottom: 25px;
+    line-height: 35px;
+
+    li {
+      border-right: 2px solid $text-gray;
+      font-size: 36.5px;
+    }
+
     a {
-      &:hover {
-        img {
-          @include transform(translateY(-10px));
-        }
-        span {
-          opacity: 1;
-          @include transform(translateY(-10px));
-        }
-      }
+      padding: 0 12.5px;
+      line-height: 25px;
     }
-    .link {
-      height: 90px;
-    }
-    img {
-      margin: 20px auto;
+
+    &.bottom-nav {
+      padding: 25px 15px;
     }
   }
+
+  .container {
+    padding: 0 15px;
+  }
+
+  p, blockquote, code {
+    margin: 15px auto;
+  }
+
+  header {
+    border-bottom: 5px solid $color-secondary-2-0;
+
+    h1 {
+      font-size: 80px;
+    }
+  }
+
+  p {
+    font-size: 22px;
+  }
+
+  select {
+    font-size: 15px;
+    height: 35px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+@include mq(1020px) {
+
+  header {
+    h1 {
+      float: left;
+    }
+
+    nav {
+      float: right;
+      margin-top: 64px;
+    }
+  }
+
+  .bottom-nav {
+    float: right;
+    width: auto;
+  }
+
 }

@@ -11,3 +11,40 @@
     margin: 0;
   }
 }
+
+
+
+
+
+
+
+
+@include mq(500px) {
+
+  .image-tile {
+    margin: 25px 15px;
+    display: table-row;
+
+    .image {
+      display: table-cell;
+      vertical-align: top;
+      width: 50%;
+      padding-bottom: 20px;
+    }
+    ul {
+      display: table-cell;
+      vertical-align: bottom;
+      padding-left: 10px;
+      padding-bottom: 20px;
+    }
+  }
+
+}
+
+
+
+
+
+@include mq(670px) {
+
+}

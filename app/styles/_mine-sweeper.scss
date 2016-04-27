@@ -351,3 +351,44 @@
 }
 
 //26 x 26
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@include mq(500px) {
+
+  .mine-sweeper {
+
+    .table {
+      margin-bottom: 25px;
+    }
+
+    .header-first-row {
+      margin-bottom: 25px;
+      margin-top: 25px;
+    }
+    .header-second-row {
+      margin-bottom: 25px;
+    }
+
+    .mine-sweeper-tile-value {
+      font-size: 25px;
+    }
+
+  }
+
+}

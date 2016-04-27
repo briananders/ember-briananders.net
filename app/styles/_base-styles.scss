@@ -38,8 +38,7 @@ $Neon-Purple: #993CF3;
 
 @mixin font-size($sizeValue: 16) {
   font-size: $sizeValue + px;
-  font-size: ($sizeValue / 10) + vh;
-  // font-size: ($sizeValue / 10) + rem;
+  font-size: ($sizeValue / 10) + rem;
 }
 
 @mixin column-count($value:1) {

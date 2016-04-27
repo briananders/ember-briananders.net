@@ -16,9 +16,11 @@
   <div class="header-second-row">
 
     <div>
-      {{view "select"
-        content=difficultyOptions
-        value=difficulty}}
+      <select onchange={{action "selectDifficulty" value="target.value"}}>
+        {{#each difficultyOptions as |difficultyOption|}}
+          <option value={{difficultyOption}} selected={{eq difficulty difficultyOption}}>{{difficultyOption}}</option>
+        {{/each}}
+      </select>
     </div>
 
     {{!-- {{#if isCustom}}

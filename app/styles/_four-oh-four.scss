@@ -18,3 +18,24 @@
     }
   }
 }
+
+
+
+
+
+
+
+
+
+
+@include mq(500px) {
+
+  .four-oh-four {
+
+    .row {
+      margin-bottom: 25px;
+    }
+
+  }
+
+}

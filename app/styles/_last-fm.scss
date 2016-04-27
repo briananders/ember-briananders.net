@@ -1,6 +1,5 @@
 .album-tile,
 .artist-tile {
-  margin: 5vw 3vw;
 
   img {
     width: 100%;
@@ -11,4 +10,38 @@
     line-height: 1.5;
     margin: 0;
   }
+}
+
+
+
+
+
+
+
+
+
+
+
+@include mq(500px) {
+
+  .album-tile,
+  .artist-tile {
+    margin: 25px 0;
+    display: table-row;
+
+    .album,
+    .artist {
+      display: table-cell;
+      vertical-align: top;
+      width: 50%;
+      padding-bottom: 20px;
+    }
+    ul {
+      display: table-cell;
+      vertical-align: bottom;
+      padding-left: 10px;
+      padding-bottom: 20px;
+    }
+  }
+
 }
