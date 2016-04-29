@@ -116,27 +116,6 @@ section {
     &.instagram,
     &.albums {
       a {
-        width: 33.3333%;
-        padding-top: 33.3333%;
-      }
-    }
-  }
-
-}
-
-
-
-
-
-
-
-
-@include mq(990px) {
-
-  section {
-    &.instagram,
-    &.albums {
-      a {
         width: 25%;
         padding-top: 25%;
         max-width: 320px;
@@ -145,4 +124,26 @@ section {
   }
 
 }
+
+
+
+
+
+
+
+
+// @include mq(990px) {
+
+//   section {
+//     &.instagram,
+//     &.albums {
+//       a {
+//         width: 25%;
+//         padding-top: 25%;
+//         max-width: 320px;
+//       }
+//     }
+//   }
+
+// }
 

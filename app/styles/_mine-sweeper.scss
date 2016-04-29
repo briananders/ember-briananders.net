@@ -1,13 +1,45 @@
 .mine-sweeper {
 
   .table {
-    margin-bottom: 5vw;
     font-family: "Courier New", Courier, monospace;
     font-weight: bold;
+    width: 100%;
+    margin: auto;
+
+    &.beginner {
+      max-width: 400px;
+    }
+    &.intermediate {
+      max-width: 800px;
+    }
+    &.expert {
+      max-width: 1200px;
+    }
   }
 
-  table {
-    width: 100%;
+  .blog-date,
+  .header-first-row,
+  .header-second-row {
+
+    @include transition(width 0.5s ease, max-width 0.5s ease);
+
+    &.beginner {
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    &.intermediate {
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    &.expert {
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 
   .header-first-row {
@@ -41,7 +73,6 @@
   }
 
   ul, li {
-    padding: 0;
     margin: 0;
     list-style: none;
     overflow: hidden;
@@ -372,10 +403,6 @@
 @include mq(500px) {
 
   .mine-sweeper {
-
-    .table {
-      margin-bottom: 25px;
-    }
 
     .header-first-row {
       margin-bottom: 25px;

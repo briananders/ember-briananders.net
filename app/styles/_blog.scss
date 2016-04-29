@@ -4,8 +4,6 @@
 
 
 section.blog {
-  margin-bottom: 0;
-  padding-bottom: 0;
 
   .blog-tile,
   .blog-tile:visited {
@@ -34,6 +32,7 @@ section.blog {
 
     &:last-child {
       margin-bottom: 0;
+      border-bottom: none;
     }
   }
   .filter-list {
@@ -186,11 +185,40 @@ code {
     border: 5px solid #FFA700;
   }
 
-
-
-
   .blog-container {
     padding: 25px 15px;
   }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+// @include mq(768px) {
+
+//   section.blog {
+
+//     .blog-list-container {
+//       display: flex;
+//       flex-wrap: wrap;
+//       flex-flow: row wrap;
+//       // align-items: flex-start;
+//       justify-content: space-between;
+//     }
+
+//     .blog-tile,
+//     .blog-tile:visited {
+//       flex-grow: 1;
+//       width: 350px;
+//     }
+
+//   }
+
+// }

@@ -1,8 +1,14 @@
 .album-tile,
 .artist-tile {
+  background: white;
+  margin-bottom: 3vw;
 
   img {
     width: 100%;
+  }
+
+  ul {
+    padding: 3vw;
   }
 
   li,
@@ -22,25 +28,92 @@
 
 
 
-@include mq(500px) {
+@include mq(340px) {
+
+  .albums,
+  .artists {
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow: row wrap;
+    justify-content: space-between;
+  }
 
   .album-tile,
   .artist-tile {
-    margin: 25px 0;
-    display: table-row;
+    width: 320px;
+    margin-bottom: 10px;
+    flex-grow: 1;
 
     .album,
     .artist {
-      display: table-cell;
-      vertical-align: top;
-      width: 50%;
-      padding-bottom: 20px;
+      float: none;
+      width: 100%;
     }
     ul {
-      display: table-cell;
-      vertical-align: bottom;
-      padding-left: 10px;
-      padding-bottom: 20px;
+      float: none;
+      width: 100%;
+      padding: 10px;
+    }
+  }
+
+}
+
+
+
+
+
+
+
+
+
+@include mq(670px) {
+
+  .album-tile,
+  .artist-tile {
+    &:nth-child(2n) {
+      margin-left: 5px;
+    }
+    &:nth-child(2n+1) {
+      margin-right: 5px;
+    }
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+@include mq(1005px) {
+
+  .album-tile,
+  .artist-tile {
+    &:nth-child(2n) {
+      margin-left: auto;
+    }
+    &:nth-child(2n+1) {
+      margin-right: auto;
+    }
+
+    &:nth-child(3n) {
+      margin-left: 5px;
+    }
+    &:nth-child(3n+1) {
+      margin-right: 5px;
+    }
+    &:nth-child(3n+2) {
+      margin-right: 5px;
+      margin-left: 5px;
+    }
+
+    &:last-child {
+      display: none;
+      visibility: hidden;
     }
   }
 

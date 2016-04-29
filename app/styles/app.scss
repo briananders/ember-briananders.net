@@ -151,7 +151,7 @@ nav {
   }
 
   &.bottom-nav {
-    padding: 5vw 3vw;
+    padding: 5vw 0;
   }
 }
 
@@ -189,6 +189,10 @@ header {
   h1 {
     font-size: 16vw;
   }
+}
+
+.bottom-nav-container {
+  border-top: 1vw solid $color-secondary-2-0;
 }
 
 .content {
@@ -382,7 +386,7 @@ section:nth-child(2n) {
     }
 
     &.bottom-nav {
-      padding: 25px 15px;
+      padding: 25px 0;
     }
   }
 
@@ -400,6 +404,10 @@ section:nth-child(2n) {
     h1 {
       font-size: 80px;
     }
+  }
+
+  .bottom-nav-container {
+    border-top: 5px solid $color-secondary-2-0;
   }
 
   p {

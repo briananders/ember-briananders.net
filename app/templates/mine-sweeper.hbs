@@ -1,5 +1,5 @@
 {{#blog-layout}}
-  <div class="header-first-row">
+  <div class="header-first-row {{difficulty}}">
     <span class="time">
       <span class="number number-{{timeHundreds}}"></span>
       <span class="number number-{{timeTens}}"></span>
@@ -13,12 +13,12 @@
     </span>
   </div>
 
-  <div class="header-second-row">
+  <div class="header-second-row {{difficulty}}">
 
     <div>
       <select onchange={{action "selectDifficulty" value="target.value"}}>
         {{#each difficultyOptions as |difficultyOption|}}
-          <option value={{difficultyOption}} selected={{eq difficulty difficultyOption}}>{{difficultyOption}}</option>
+          <option value={{difficultyOption}} selected={{eq difficulty difficultyOption}}>{{capitalize difficultyOption}}</option>
         {{/each}}
       </select>
     </div>
@@ -47,7 +47,7 @@
 
   </div>
 
-  <ul class="table">
+  <ul class="table {{difficulty}}">
     {{#each rowsAndColumns as |row|}}
       <li class="row column-count-{{columnWidthClass}}">
         <ul>

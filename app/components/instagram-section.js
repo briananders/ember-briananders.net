@@ -9,7 +9,7 @@ export default Ember.Component.extend({
   showDescription: false,
 
 
-  classNameBindings: [':instagram', 'error:hidden', 'noImages:hidden'],
+  classNameBindings: [':images', 'error:hidden', 'noImages:hidden'],
 
 
   images: Ember.computed.alias('stateService.instagram'),

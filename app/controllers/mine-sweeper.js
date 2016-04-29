@@ -3,9 +3,9 @@ import MineSweeperTileModel from '../models/mine-sweeper-tile';
 
 export default Ember.Controller.extend({
 
-//Beginner (8x8, 10 mines),
-//Intermediate (16x16, 40 mines)
-//Expert (24x24, 99 mines)
+//beginner (8x8, 10 mines),
+//intermediate (16x16, 40 mines)
+//expert (24x24, 99 mines)
 //Custom (0-25, 0-25, 0-99)
 
 ////////////////////////////////////////////// properties
@@ -47,18 +47,18 @@ export default Ember.Controller.extend({
 
 
 
-  difficulty: "Beginner",
+  difficulty: "beginner",
 
-  difficultyOptions: ["Beginner", "Intermediate", "Expert"],
+  difficultyOptions: ["beginner", "intermediate", "expert"],
 
 
 
   numberOfRows: Ember.computed('difficulty', function() {
 
     switch(this.get('difficulty')) {
-      case "Beginner":
+      case "beginner":
         return 8;
-      case "Intermediate":
+      case "intermediate":
         return 16;
       default:
         return 24;
@@ -69,9 +69,9 @@ export default Ember.Controller.extend({
   numberOfColumns: Ember.computed('difficulty', function() {
 
     switch(this.get('difficulty')) {
-      case "Beginner":
+      case "beginner":
         return 8;
-      case "Intermediate":
+      case "intermediate":
         return 16;
       default:
         return 24;
@@ -82,9 +82,9 @@ export default Ember.Controller.extend({
   mineCount: Ember.computed('difficulty', function() {
 
     switch(this.get('difficulty')) {
-      case "Beginner":
+      case "beginner":
         return 10;
-      case "Intermediate":
+      case "intermediate":
         return 40;
       default:
         return 99;
@@ -94,19 +94,7 @@ export default Ember.Controller.extend({
 
 
 
-  // mineOptions: [10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 99],
-
-  // rowOptions: [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
-
-  // columnOptions: [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
-
-
-
 ////////////////////////////////////////////// computed properties
-
-
-
-  // isCustom: Ember.computed.equal('difficulty', "Custom"),
 
 
 
@@ -197,7 +185,7 @@ export default Ember.Controller.extend({
 
 
 
-  observesRowsAndColumns: Ember.observer('numberOfRows', 'numberOfColumns', 'mineCount', function() {
+  observersForReset: Ember.observer('numberOfRows', 'numberOfColumns', 'mineCount', 'difficulty', function() {
 
     this.send('reset');
 
@@ -221,27 +209,7 @@ export default Ember.Controller.extend({
 
   // observesDifficulty: Ember.observer('difficulty', function() {
 
-  //   var difficulty = this.get('difficulty');
-  //   switch(difficulty) {
-  //     case "Beginner":
-  //       this.set('numberOfRows', 8);
-  //       this.set('numberOfColumns', 8);
-  //       this.set('mineCount', 10);
-  //       break;
-  //     case "Intermediate":
-  //       this.set('numberOfRows', 16);
-  //       this.set('numberOfColumns', 16);
-  //       this.set('mineCount', 40);
-  //       break;
-  //     case "Expert":
-  //       this.set('numberOfRows', 24);
-  //       this.set('numberOfColumns', 24);
-  //       this.set('mineCount', 99);
-  //       break;
-  //     default:
-  //       break;
-  //   }
-  //   console.log(this.get('isCustom'));
+  //   this.send('reset');
 
   // }),
 
