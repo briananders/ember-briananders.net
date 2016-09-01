@@ -1,7 +1,19 @@
+.last-fm {
+  section:first-of-type {
+    background-color: #311;
+    // background-color: $red;
+  }
+}
+
+
+
 .album-tile,
 .artist-tile {
-  background: white;
   margin-bottom: 3vw;
+
+  a {
+    text-decoration: none;
+  }
 
   img {
     width: 100%;
@@ -32,17 +44,17 @@
 
   .albums,
   .artists {
-    display: flex;
-    flex-wrap: wrap;
-    flex-flow: row wrap;
-    justify-content: space-between;
+    overflow: visible;
   }
 
   .album-tile,
   .artist-tile {
-    width: 320px;
-    margin-bottom: 10px;
-    flex-grow: 1;
+    display: block;
+    float: left;
+    width: 48.5%;
+    max-width: 320px;
+    margin-bottom: 3%;
+    margin-right: 3%;
 
     .album,
     .artist {
@@ -53,6 +65,11 @@
       float: none;
       width: 100%;
       padding: 10px;
+    }
+
+    &:nth-child(2n) {
+      clear: none;
+      margin-right: 0;
     }
   }
 
@@ -70,11 +87,24 @@
 
   .album-tile,
   .artist-tile {
+    width: 32.333333333%;
+
     &:nth-child(2n) {
-      margin-left: 5px;
+      clear: none;
+      margin-right: 1.5%;
     }
-    &:nth-child(2n+1) {
-      margin-right: 5px;
+
+    &:nth-child(3n) {
+      clear: none;
+      margin-right: 0;
+    }
+    &:nth-child(3n+1) {
+      clear: left;
+      margin-right: 1.5%;
+    }
+    &:nth-child(3n+2) {
+      clear: none;
+      margin-right: 1.5%;
     }
   }
 
@@ -93,28 +123,30 @@
 
   .album-tile,
   .artist-tile {
-    &:nth-child(2n) {
-      margin-left: auto;
-    }
-    &:nth-child(2n+1) {
-      margin-right: auto;
-    }
+    width: 23.875%;
 
     &:nth-child(3n) {
-      margin-left: 5px;
-    }
-    &:nth-child(3n+1) {
-      margin-right: 5px;
-    }
-    &:nth-child(3n+2) {
-      margin-right: 5px;
-      margin-left: 5px;
+      clear: none;
+      margin-right: 1.5%;
     }
 
-    &:last-child {
-      display: none;
-      visibility: hidden;
+    &:nth-child(4n) {
+      clear: none;
+      margin-right: 0;
     }
+    &:nth-child(4n+1) {
+      clear: left;
+      margin-right: 1.5%;
+    }
+    &:nth-child(4n+2) {
+      clear: none;
+      margin-right: 1.5%;
+    }
+    &:nth-child(4n+3) {
+      clear: none;
+      margin-right: 1.5%;
+    }
+
   }
 
 }

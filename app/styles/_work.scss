@@ -19,8 +19,14 @@ section.work {
   }
 
   .work-row {
+    color: $grey;
+
     &.nest {
       background-color: #2FC9EF;
+      color: $white;
+    }
+    a {
+      color: inherit;
     }
     &.principal {
       background-color: #FFFFFF;
@@ -40,8 +46,6 @@ section.work {
     width: 100%;
     height: 0;
     padding-top: 100%;
-    @include transform(scale(1));
-    @include transition(transform .2s ease, z-index .2s ease);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: 70%;

@@ -1,5 +1,12 @@
 .mine-sweeper {
 
+  .blog-container {
+    > * {
+      max-width: none;
+      width: auto;
+    }
+  }
+
   .table {
     font-family: "Courier New", Courier, monospace;
     font-weight: bold;
@@ -53,8 +60,8 @@
       width: 100%; /* Ensures there are at least 2 lines of text, so justification works */
       display: inline-block;
     }
-
   }
+
   .header-second-row {
     margin-bottom: 5vw;
     text-align: center;
@@ -68,7 +75,6 @@
     height: 50px;
     border-radius: 5px;
     border: 1px solid #A6A6A6;
-    background-color: #F8F8F8;
     padding: 0 15px;
   }
 
@@ -249,50 +255,34 @@
     background-position-x: 0;
 
     &.one {
-      // color: blue;
-
       background-position-y: 0%;
       background-position-x: 12.5%;
     }
     &.two {
-      // color: green;
-
       background-position-y: 0%;
       background-position-x: 25%;
     }
     &.three {
-      // color: red;
-
       background-position-y: 0%;
       background-position-x: 37.5%;
     }
     &.four {
-      // color: darkblue;
-
       background-position-y: 0%;
       background-position-x: 50%;
     }
     &.five {
-      // color: brown;
-
       background-position-y: 0%;
       background-position-x: 62.5%;
     }
     &.six {
-      // color: cyan;
-
       background-position-y: 0%;
       background-position-x: 75%;
     }
     &.seven {
-      // color: black;
-
       background-position-y: 0%;
       background-position-x: 87.5%;
     }
     &.eight {
-      // color: grey;
-
       background-position-y: 0%;
       background-position-x: 100%;
     }

@@ -17,8 +17,23 @@ Router.map(function() {
   this.route('mine-sweeper');
   this.route('how-to-match-the-height-of-sibling-elements');
   this.route('apple-campus-2-construction');
-  this.route('instagram');
   this.route('last-fm');
+  this.route('best-albums-of-2016');
+  this.route('best-albums-of-2015');
+  this.route('best-albums-of-2014');
+  this.route('best-albums-of-2013');
+  this.route('best-albums-of-2012');
+  this.route('best-albums-of-2011');
+  this.route('best-albums-of-2010');
+  this.route('best-albums-of-2009');
+  this.route('best-albums-of-2008');
+  this.route('best-albums-of-2007');
+  this.route('best-albums-of-2006');
+  this.route('best-albums-of-2005');
+  this.route('best-albums-of-the-1960s');
+  this.route('best-albums-of-the-1970s');
+  this.route('best-albums-of-the-1980s');
+  this.route('best-albums-of-the-1990s');
 });
 
 Ember.Route.reopen({

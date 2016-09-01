@@ -17,7 +17,13 @@ section.blog {
     position: relative;
     text-align: left;
     padding-bottom: 2.5vw;
-    border-bottom: 1px solid $light-gray;
+    text-decoration: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-left-width: 5px;
+    border-left-color: #555;
+    border-left-style: solid;
+    @include transition(border-left 1s ease);
 
     h3 {
       margin: 0;
@@ -26,13 +32,14 @@ section.blog {
       display: block;
     }
 
-    .description {
-      color: $text-gray;
-    }
-
     &:last-child {
       margin-bottom: 0;
       border-bottom: none;
+    }
+
+    &:hover {
+      opacity: 1;
+      border-left-color: $violet;
     }
   }
   .filter-list {
@@ -40,26 +47,6 @@ section.blog {
     margin: 0 0 3vw;
     line-height: 8vw;
     font-size: 4vw;
-  }
-  .filter-item {
-    padding: 0;
-    margin: 0;
-    display: inline-block;
-    list-style: none;
-  }
-  .filter-button {
-    border: none;
-    border-radius: 2px;
-    font-size: 4vw;
-    line-height: 4vw;
-    font-family: "Times New Roman", Times, serif;
-    background: none;
-    @include transition(background 0.2s ease, color 0.2s ease);
-
-    &.active {
-      background: $color-secondary-2-0;
-      color: $background;
-    }
   }
 }
 
@@ -106,7 +93,6 @@ div {
   }
 }
 blockquote {
-  border-left: 5px solid $color-secondary-2-0;
   margin: 0;
   padding: 10vw;
 
@@ -122,7 +108,7 @@ code {
   font-size: 3vw;
   padding: 3vw;
   display: block;
-  border: 1vw solid #FFA700;
+  background-color: rgba(255,255,255,0.3);
 }
 
 .author {
@@ -133,7 +119,15 @@ code {
 
 
 .blog-container {
+  // background-color: $burnt-orange;
   padding: 5vw 3vw;
+
+  > * {
+    width: 800px;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: auto;
+  }
 
   .home {
     display: block;
@@ -143,9 +137,18 @@ code {
 
   img {
     display: block;
-    margin: 10px auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 }
+
+
+
+
+
+
+
+
 
 
 
@@ -159,7 +162,7 @@ code {
     .blog-tile,
     .blog-tile:visited {
       margin-bottom: 12.5px;
-      padding-bottom: 12.5px;
+      padding-bottom: 5px;
     }
     .filter-list {
       margin: 0 0 15px;
@@ -182,7 +185,6 @@ code {
   code {
     font-size: 15px;
     padding: 15px;
-    border: 5px solid #FFA700;
   }
 
   .blog-container {
@@ -190,35 +192,3 @@ code {
   }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-// @include mq(768px) {
-
-//   section.blog {
-
-//     .blog-list-container {
-//       display: flex;
-//       flex-wrap: wrap;
-//       flex-flow: row wrap;
-//       // align-items: flex-start;
-//       justify-content: space-between;
-//     }
-
-//     .blog-tile,
-//     .blog-tile:visited {
-//       flex-grow: 1;
-//       width: 350px;
-//     }
-
-//   }
-
-// }

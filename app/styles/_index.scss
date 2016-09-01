@@ -20,6 +20,11 @@ section {
   @include box-sizing(border-box);
   @include transition(height 0.5s ease);
 
+
+  h2 a {
+    text-decoration: none;
+  }
+
   &.about-me {
     width: 100%;
     height: auto;
@@ -38,8 +43,9 @@ section {
     }
   }
 
-  &.instagram,
   &.albums {
+    // background-color: $red;
+
     h2 a {
       float: none;
       width: auto;
@@ -52,12 +58,11 @@ section {
     a {
       width: 50%;
       float: left;
-      opacity: 1;
       position: relative;
       padding-top: 50%;
       height: 0;
       top: 0px;
-      @include transition(top 0.2s ease);
+      @include transition(top 0.3s ease, opacity 0.3s ease);
 
       img {
         position: absolute;
@@ -90,7 +95,6 @@ section {
       margin: 0 0 25px;
     }
 
-    &.instagram,
     &.albums {
       a {
         &.image:hover,
@@ -113,7 +117,6 @@ section {
 @include mq(670px) {
 
   section {
-    &.instagram,
     &.albums {
       a {
         width: 25%;
@@ -124,26 +127,4 @@ section {
   }
 
 }
-
-
-
-
-
-
-
-
-// @include mq(990px) {
-
-//   section {
-//     &.instagram,
-//     &.albums {
-//       a {
-//         width: 25%;
-//         padding-top: 25%;
-//         max-width: 320px;
-//       }
-//     }
-//   }
-
-// }
 

@@ -1,6 +1,6 @@
 import { moduleFor, test } from 'ember-qunit';
 
-moduleFor('route:instagram', 'Unit | Route | instagram', {
+moduleFor('route:best-albums-of-2015', 'Unit | Route | best albums of 2015', {
   // Specify the other units that are required for this test.
   // needs: ['controller:foo']
 });

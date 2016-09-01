@@ -11,7 +11,7 @@
     "clean": "rm -rf node_modules bower_components tmp dist && npm cache clean && bower cache clean",
     "setup": "npm install && bower install && npm install && bower install",
     "build": "ember build --environment=production",
-    "start": "ember server",
+    "start": "ember server --live-reload=false",
     "test": "ember test"
   },
   "repository": "",
